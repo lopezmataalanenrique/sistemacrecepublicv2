@@ -1,0 +1,120 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.logo-resultados {
+    height: 100%;
+    max-height: 35rem; 
+    margin: 0 auto 1.5rem auto; 
+    object-fit: contain; 
+    display: block;
+    @include m.tablet {
+        width: auto;
+        max-width: 85%; 
+        height: auto;
+    } 
+}
+
+.contenedor-resultados {
+    display: grid;
+    grid-template-columns: repeat 1fr;
+    padding: 1rem;
+    row-gap: 4rem;
+    @include m.tablet {
+        grid-template-columns: 1fr 1fr;
+        padding: 4rem;
+        column-gap: 4rem;
+    }
+}
+
+.resultado {
+    border: 0.1rem solid color-mix(in srgb, v.$azul_oscuro, transparent 80%);
+    border-radius: 4rem;
+    padding: 2rem; 
+    background-color: v.$blanco;
+}
+
+.titulo-resultado {
+    text-align: center;
+    font-size: 2.8rem;
+    color: v.$blanco;
+    font-weight: v.$bold;
+    padding: 2.5rem 0;
+    margin-bottom: 5rem;
+    background-color: v.$azul_oscuro;
+    border-radius: 2rem;
+    @include m.tablet{
+
+    }
+}
+
+.header-resultados {
+    background-color: v.$blanco;
+    padding: 0;
+    margin-bottom: 5rem;
+}
+
+.header-texto-resultados {
+    background-color: v.$azul_oscuro;
+    color: v.$blanco;
+    padding: 2rem;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.no-diagnostico {
+    margin-top: 8rem;
+    font-size: 2.7rem;
+}
+
+.resultado-final {
+    grid-column: 1 / 2;
+    @include m.tablet {
+        grid-column: 1 / 3;
+    }
+    
+}
+
+.boton-resultados {
+    font-family: v.$fuente_principal;
+    display: block;
+    width: 85%;
+    height: 10rem;
+    padding: 1rem;
+    margin: 2rem 0;
+    font-weight: v.$bold;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    border-radius: 1rem;
+    transition: 0.3s;
+    color: v.$blanco;
+    background-color: v.$azul_oscuro;
+    font-size: 2.5rem;
+    
+}
+
+.contenedor-boton-final {
+    grid-column: 1 / 2;
+    @include m.tablet {
+        grid-column: 1 / 3;
+    }
+}
+
+.boton-resultados:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+.contenedor-barra {
+    width: 100%;
+    background-color: #d0d0d0;
+    border-radius: 4rem;
+    height: 2.5rem;
+    margin: 4rem 0;
+    overflow: hidden;
+}
+
+.barra-llenado {
+    height: 100%;
+    background-color: #9e8425; /* Único color para todo el llenado */
+    transition: width 0.5s ease-in-out;
+}

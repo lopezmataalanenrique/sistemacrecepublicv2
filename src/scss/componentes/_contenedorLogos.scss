@@ -1,0 +1,20 @@
+.contenedor-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    margin-bottom: 8rem;
+}
+
+.contenedor-logos__logo {
+    height: 20rem;
+    transition: transform 0.3s ease;
+    border-radius: 2rem;
+    box-shadow: 0 60px 60px -60px rgba(0, 6, 55, 0.5);
+    object-fit: cover;
+}
+
+.contenedor-logos__logo:hover {
+    transform: scale(1.15);
+}

@@ -1,0 +1,110 @@
+
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.encabezado-canalizacion {
+    display: block;
+    background-color: v.$azul_oscuro;
+    border-radius: 2rem 2rem 0 0 ;
+    text-align: center;
+    padding: 1rem;
+    margin: 0 0 2rem 0;
+}
+
+.encabezado-canalizacion__logo {
+    background-color: v.$blanco;
+    max-height: 15rem;
+    margin: 2rem;
+    border-radius: 2rem;
+    padding: 1rem;
+    @include m.tablet {
+        max-height: 25rem;
+    }
+}
+
+.encabezado-mensaje-canalizacion {
+    font-size: 2.8rem;
+    font-family: v.$fuente_principal;
+    font-weight: v.$bold;
+    color: v.$blanco;
+}
+
+.footer-canalizacion {
+    border-radius: 0 0 2rem 2rem;
+    margin-top: 2rem;
+}
+
+.footer-pm {
+    margin-top: 0;
+}
+
+.canalizacion-hero {
+    padding: 0 4rem;
+    background-color: v.$blanco;
+}
+
+.canalizacion-hero__titulo {
+    font-family: v.$fuente_principal;
+    font-size: 2.4rem;
+    font-weight: v.$bold;
+    color: v.$azul_oscuro;
+}
+
+.contenedor-canalizacion {
+    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.3);
+    padding: 0rem;
+    border-radius: 2rem;
+    max-width: 80rem;
+    background-color: v.$blanco;
+}
+
+.canalizacion-alerta {
+    background: #fff8e6;
+    border-left: 0.5rem solid #9e8425;
+    padding: 2.2rem;
+    border-radius: 0.6rem;
+    margin: 2.5rem 0;
+}
+
+.canalizacion-recursos {
+    background: #e5f0ff;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin: 3rem 0;
+}
+
+.canalizacion-recursos h3 {
+    font-family: v.$fuente_principal;
+    color: v.$azul_oscuro;
+    margin-bottom: 1.5rem;
+    font-weight: v.$bold;
+}
+
+.canalizacion-recursos ul {
+            list-style: none;
+        }
+
+.canalizacion-recursos li {
+            padding: 12px 0 12px 28px;
+            border-bottom: 1px solid #010d2b1d;
+            position: relative;
+        }
+
+.canalizacion-recursos li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #ccaa2e;;
+            font-size: 1.3em;
+        }
+
+.canalizacion-recursos a {
+            color: v.$azul_oscuro;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+.canalizacion-recursos a:hover {
+            text-decoration: underline;
+        }

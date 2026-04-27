@@ -1,0 +1,21 @@
+{
+  "name": "programa-crece",
+  "version": "1.0.0",
+  "description": "CRECE - Sistema Web como herramientas de apoyo telepsicológico para la atención de personas con padecimientos crónicos",
+  "author": "Alan Enrique López Mata, Joselyn Guadalupe Mireles Silvestre",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "gulp",
+    "build": "gulp build"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "glob": "^10.3.12",
+    "gulp": "^5.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-terser": "^2.1.0",
+    "sass": "^1.75.0",
+    "sharp": "^0.33.3"
+  }
+}

@@ -1,0 +1,183 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.imagen-y-audio-header {
+    background: #eef2ff;
+    padding: 1rem;
+    text-align: center;
+    margin-top: 4rem;
+    border-radius: 1rem 1rem 0 0;
+    font-weight: v.$bold;
+    border: 1px solid #d1d9ff;
+}
+
+.m5a1-c1 {
+    @include m.tablet {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 2rem;
+        padding: 1rem;
+        align-items: center;
+    }
+}
+
+/* ========================================= */
+/* MINIJUEGO: SINTONIZADOR DE DISPOSICIÓN    */
+/* ========================================= */
+.m5-sint-grid2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 2rem;
+}
+.m5-sint-grid3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+    text-align: left;
+}
+.m5-sint-barrier-col {
+    background: #fdfdfd;
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    border: 1px solid #e0e0e0;
+}
+.m5-sint-barrier-title {
+    border-bottom: 3px solid #c79e57;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    color: #12307d;
+    font-weight: 700;
+}
+
+.m5-sint-brujula-container {
+    background: #f5ece0;
+    padding: 3rem;
+    border-radius: 2rem;
+    text-align: center;
+    margin: 4rem 0;
+    border: 1px solid #ddd;
+}
+
+/* NUEVO: Contenedores para permitir scroll en móviles sin romper el diseño */
+.m5-sint-brujula-scroll-area {
+    width: 100%;
+    overflow-x: auto; /* Permite deslizar horizontalmente en celulares */
+    padding: 6rem 0; /* Da espacio arriba y abajo para que las letras no se corten */
+    margin: 2rem 0;
+}
+.m5-sint-brujula-wrapper {
+    min-width: 720px; /* Fuerza a que haya espacio suficiente para las letras izquierda/derecha */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.m5-sint-brujula-visual {
+    width: 320px;
+    height: 320px;
+    background: white;
+    border-radius: 50%;
+    border: 8px solid #c79e57;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    overflow: visible;
+}
+.m5-sint-brujula-visual.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.m5-sint-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(#d1e8f7 0deg 180deg, #ffcccc 180deg 360deg);
+    border-radius: 50%;
+    opacity: 0.6;
+    transform: rotate(-90deg);
+}
+.m5-sint-needle {
+    width: 8px;
+    height: 150px;
+    background: linear-gradient(to top, #333 50%, #d9534f 50%);
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    transform: translateX(-50%) rotate(0deg);
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 5;
+    border-radius: 4px;
+}
+.m5-sint-needle::after {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: -6px;
+    width: 20px;
+    height: 20px;
+    background: #d9534f;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* MEJORA DE ETIQUETAS: Se alejan del círculo y se bloquea el salto de línea */
+.m5-sint-label {
+    position: absolute;
+    font-weight: 700;
+    color: #003b70;
+    text-transform: uppercase;
+    z-index: 10;
+    white-space: nowrap;
+}
+.m5-sint-label-n {
+    top: -55px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.m5-sint-label-s {
+    bottom: -55px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.m5-sint-label-e {
+    top: 50%;
+    right: -180px;
+    transform: translateY(-50%);
+}
+.m5-sint-label-w {
+    top: 50%;
+    left: -180px;
+    transform: translateY(-50%);
+}
+
+.m5-sint-msg {
+    font-weight: 700;
+    color: #12307d;
+    min-height: 3rem;
+    margin-top: 1rem;
+}
+.m5-sint-feedback-box {
+    background: #fdfdfd;
+    border-left: 10px solid #c79e57;
+    padding: 3rem;
+    border-radius: 1.5rem;
+    margin-bottom: 3.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Aviso visible solo en móviles */
+.m5-aviso-movil {
+    display: none;
+    color: #666;
+    font-style: italic;
+    font-size: 1.4rem;
+    margin-top: 1rem;
+}
+@media (max-width: 768px) {
+    .m5-aviso-movil {
+        display: block;
+    }
+}

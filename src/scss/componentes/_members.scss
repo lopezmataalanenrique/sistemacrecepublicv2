@@ -1,0 +1,148 @@
+@use 'base/variables' as v;
+.member-detail-panel {
+    flex: 1; 
+    min-width: 30rem; 
+    max-width: 45rem; 
+    background-color: v.$blanco;
+    border-radius: 0.8rem;
+    box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.08);
+    padding: 3rem;
+    text-align: center;
+    height: fit-content; 
+    position: sticky; 
+    top: 12rem; 
+    
+    display: none; 
+    transition: none; 
+    opacity: 1; 
+    transform: none; 
+}
+
+.member-detail-panel.active {
+    display: block; 
+}
+
+.close-panel-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-weight: bold;
+    color: v.$gris;
+    cursor: pointer;
+    line-height: 1; 
+    padding: 0.5rem;
+    transition: color 0.2s;
+}
+
+.close-panel-btn:hover {
+    color: v.$negro;
+}
+
+.detail-photo {
+    width: 15rem; 
+    height: 15rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    border: 0.3rem solid v.$oro; 
+    box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
+}
+.detail-name {
+    font-weight: v.$bold;
+    margin-bottom: 0.5rem;
+}
+
+.detail-role {
+    font-weight: v.$regular;
+    color: v.$oro;;
+    margin-bottom: 2rem;
+}
+
+.detail-bio {
+    color: v.$gris;
+    text-align: justify;
+}
+
+/* Contenedores de las listas de equipos */
+.psych-team-grid, .tech-team-grid {
+    flex: 2; 
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Espacio entre tarjetas */
+    min-width: 30rem; 
+}
+.team-member-card {
+    background-color: v.$blanco; 
+    border-radius: 0.8rem;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    cursor: pointer; 
+    display: flex; 
+    align-items: center;
+    border-left: 0.5rem solid v.$azul-oscuro; 
+}
+
+.team-member-card.active,
+.team-member-card:hover {
+    background-color: #f0f8ff; 
+    box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.12);
+}
+
+/* Estilo específico para el equipo de desarrollo tecnológico */
+.tech-team-grid .team-member-card {
+    border-left-color: v.$azul-oscuro; 
+}
+
+.tech-team-grid .team-member-card.active,
+.tech-team-grid .team-member-card:hover {
+    background-color: #e6f7ff; 
+}
+
+.team-member-card .member-photo {
+    width: 6rem; 
+    height: 6rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1.5rem;
+    border: 0.2rem solid #eee;
+    box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.1);
+}
+
+.team-member-card .member-details {
+    flex-grow: 1;
+    text-align: left; 
+}
+
+.team-member-card .member-name { 
+    font-size: 1em;
+    font-weight: v.$bold;
+    font-family: v.$fuente_principal;
+    color: v.$negro;
+    margin: 0;
+}
+
+.team-member-card .member-role {
+    font-weight: v.$regular;
+    color: v.$gris; 
+    margin: 0;
+}
+
+/* ============================================== */
+/* 8. ELIMINACIÓN DE ESTILOS DE CARRUSEL DE EQUIPO */
+/* ============================================== */
+
+/* Ocultar elementos de carrusel de EQUIPO para asegurar que no interfieran */
+.carousel-showcase-wrapper,
+.team-prev, 
+.team-next {
+    display: none !important;
+}
+
+/* CLAVE: Resetea el padding-top del body para las páginas de autenticación */
+body.split-auth-layout {
+    padding-top: 0 !important;
+    overflow-y: auto; /* Permite el scroll vertical en la página */
+}

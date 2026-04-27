@@ -1,0 +1,102 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    font-family: v.$fuente_secundaria;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+.body-c {
+    color: v.$negro;
+    padding: 0;
+    margin: 0;
+    background-color: v.$fondo_claro;
+    font-size: 2.2rem;
+    transition: ease 0.3s;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 120rem;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.body-c a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.centrar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.texto-justificado {
+    text-align: justify;
+}
+
+.cursiva-negritas {
+    font-weight: v.$bold;
+    font-style: italic;
+}
+
+.boton {
+    font-family: v.$fuente_principal;
+    font-weight: v.$bold;
+    background: v.$azul_oscuro;
+    color: v.$blanco;
+    padding: 1.5rem 4rem;
+    border-radius: 0.8rem;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.boton:not(.boton-completado):hover {
+    transform: scale(1.15);
+}
+audio {
+    max-width: 100rem;
+    width: 100%;
+    margin: 2rem 0;
+}
+
+.contenedor-cambiar-size {
+    margin: 0 auto; /* clave para mandarlo al extremo derecho */
+    display: flex;
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+.boton-cambiar-size {
+    font-size: 1.8rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-family: v.$fuente_principal;
+    font-weight: v.$bold;
+    background-color: #12307d;
+    color: white;
+    transition: 0.3s;
+}
+
+.boton-cambiar-size:hover {
+    transform: scale(1.15);
+}

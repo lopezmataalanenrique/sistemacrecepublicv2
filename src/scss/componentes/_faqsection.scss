@@ -1,0 +1,31 @@
+@use 'base/variables' as v;
+
+/* ESTILO DE PREGUNTAS FAQ's */
+.faq-item {
+    border-bottom: 0.1rem solid #ddd;
+    padding: 2rem 0; 
+    text-align: left;
+}
+
+.faq-item h3 {
+    font-family: v.$fuente_principal; 
+    color: v.$negro;
+    font-size: 1.3em; 
+    font-weight: v.$bold;
+    margin-bottom: 1.2rem; 
+    text-align: justify;
+}
+
+.faq-item p, .faq-item ul {
+    font-family: v.$fuente_secundaria;
+    padding-left: 0.5rem;
+    color: v.$gris;
+    font-size: 2rem;
+    text-align: justify; 
+}
+
+.faq-section .contenedor {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 3rem; 
+}

@@ -1,0 +1,14 @@
+@use 'base/variables' as v;
+.read-more-link {
+    display: inline-block;  
+    font-size: 1em;
+    color: v.$negro;
+    border-bottom: 0.2rem solid v.$negro;
+    padding-bottom: 0.2rem;
+    margin-top: 1rem; 
+    text-decoration: none; 
+}
+.read-more-link:hover {
+    color: v.$gris;
+    border-bottom-color: v.$gris;
+}

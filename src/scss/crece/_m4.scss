@@ -1,0 +1,23 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.m4a4-sintomas-titulo {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    @include m.telefono {
+        display: grid;
+        grid-template-columns: 1.5fr 2fr;
+        gap: 2rem;
+        align-items: center;
+    }
+}
+
+.m4a4-sintomas-cuerpo {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+    @include m.telefono {
+        grid-template-columns: 1fr 2fr;
+    }
+}

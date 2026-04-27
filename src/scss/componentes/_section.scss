@@ -1,0 +1,163 @@
+@use 'base/variables' as v;
+
+.custom-crece-hero {
+    text-align: center;
+    padding-bottom: 0;
+    position: relative; 
+    overflow: hidden;
+    min-height: 52rem;
+}
+
+.hero-content {
+    z-index: 3; 
+    position: relative; 
+    padding: 0; 
+    margin-bottom: 0; 
+}
+
+.what-is-crece-columns {
+    padding: 6rem 0; 
+    text-align: center;
+    scroll-margin-top: 8rem;
+}
+
+@media (max-width: 768px) {
+    .what-is-crece-columns {
+        scroll-margin-top: 4rem;
+    }
+}
+
+.section-title-centered {
+    font-family: v.$fuente_principal; 
+    font-weight: v.$bold;
+    text-transform: uppercase;
+}
+
+.three-column-layout {
+    display: flex;
+    gap: 4rem;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .three-column-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.info-block {
+    flex: 1;
+    max-width: 35rem;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.info-block h3 {
+    font-size: 1.5em;
+    font-weight: v.$bold;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.info-block p {
+    margin-bottom: 1.5rem;
+    color: v.$gris;
+    overflow: hidden;
+}
+
+.project-showcase {
+    position: relative; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.arrow-button {
+    background: none;
+    border: none;
+    color: v.$blanco;
+    cursor: pointer;
+    padding: 0 1rem;
+}
+
+.showcase-content {
+    width: 30rem;
+    height: 20rem;
+    background-color: v.$blanco; 
+    border: 0.1rem solid rgba(255, 255, 255, 0.2);
+    overflow: hidden; 
+}
+
+.projects-info h4 {
+    font-weight: v.$bold;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.2rem;
+}
+
+.projects-info p {
+    opacity: 0.9;
+}
+
+.content-section {
+    padding: 6rem 0; 
+    background-color: v.$fondo_claro;
+}
+
+.who-we-are .contenedor {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 3rem; 
+}
+
+.who-we-are .team-title {
+    font-size: 1.5em;
+    width: 100%; 
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+
+.who-we-are p { 
+    line-height: 1.7; 
+    margin-bottom: 3rem; 
+}
+
+@media (max-width: 90rem) {
+    .who-we-are .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .member-detail-panel {
+        width: 100%;
+        max-width: 60rem; 
+        position: relative; 
+        top: auto;
+        margin-bottom: 3rem;
+        transform: translateX(0); 
+    }
+
+    .psych-team-grid, .tech-team-grid {
+        width: 100%;
+        max-width: 60rem; 
+    }
+}
+
+.gold-bar {
+    text-align: center;
+    display: inline-block;
+    margin: 0;
+    border-radius: 2rem;
+    color: v.$negro; 
+    background-color: v.$oro;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.gold-bar h2 {
+    font-size: 2em;
+    font-weight: v.$bold;
+    padding: 2rem;
+}

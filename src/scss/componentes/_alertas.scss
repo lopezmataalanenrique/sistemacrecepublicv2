@@ -1,0 +1,23 @@
+@use 'base/variables' as v;
+@use 'sass:color';
+
+.alerta {
+    padding: calc(v.$separacion / 4);
+    color: v.$negro;
+    width: 100%;
+    display: block;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: v.$bold;
+    border-radius: 1rem;
+    &.error {
+        background-color: v.$rojo;
+        border: 1px solid color.adjust(v.$rojo, $lightness: -10%);
+        color: v.$blanco;
+    }
+    &.exito {
+        background-color: v.$verde;
+        border: 1px solid color.adjust(v.$verde, $lightness: -10%);
+        color: v.$blanco;
+    }
+}

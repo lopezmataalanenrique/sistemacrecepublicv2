@@ -1,0 +1,96 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+header {
+    margin-bottom: 15rem;
+}
+
+.navbar {
+    font-size: 1.8rem;
+    background-color: v.$blanco;
+}
+
+.navbar-pm {
+    font-size: 1.8rem;
+    background-color: v.$azul_oscuro;
+}
+
+.nav-link-c {
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 0 1.2rem;
+    font-weight: v.$bold;
+    color: rgba(v.$azul-oscuro, 0.5);
+}
+
+.nav-link-c:hover {
+    color: v.$azul-oscuro;
+    transition: color 0.3s ease;
+}
+
+.nav-link-c--active {
+    color: v.$azul-oscuro;
+}
+
+.nav-link-c-pm {
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 0 1.2rem;
+    font-weight: v.$bold;
+    color: rgba(v.$azul_oscuro, 0.5);
+    @include m.tablet {
+        color: rgba(v.$blanco, 0.5);
+    }
+}
+
+.nav-link-c-pm:hover {
+    color: v.$azul_oscuro;
+    transition: color 0.3s ease;  
+    @include m.tablet {
+        color: v.$blanco;  
+    }
+    
+}
+
+.nav-link-c--active-pm {
+    color: v.$azul_oscuro;
+    @include m.tablet {
+        color: v.$blanco;
+    }
+}
+
+.navbar--logo {
+    height: 8rem;
+    margin-left: 4rem;
+}
+
+.navbar--logo-pm {
+    background-color: v.$blanco;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+.navbar--logo__offcanvas {
+    height: 8rem;
+    margin-left: 0;
+}
+
+.regresar-inicio {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.regresar-inicio:hover {
+    transform: scale(1.1);
+    font-weight: v.$bold;
+}
+
+.texto-regresar-inicio {
+    font-size: 4rem;
+    color: rgba(v.$azul-oscuro, 1);
+    margin: 0;
+    padding: 0;
+}

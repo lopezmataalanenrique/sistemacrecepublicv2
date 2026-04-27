@@ -1,0 +1,591 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.encabezado-panel {
+    background-color: v.$blanco;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin: 0;
+
+    @include m.tablet {}
+
+    padding-top: 10rem;
+}
+
+.encabezado-panel-instituciones {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+}
+
+.encabezado-panel-logo-crece {
+    display: flex;
+    justify-content: right;
+    padding: 1rem 1rem 1rem 0;
+}
+
+.encabezado-panel__logo {
+    max-height: 8rem;
+    min-height: 5rem;
+
+    @include m.tablet {
+        max-height: 15rem;
+    }
+}
+
+.container-fluid .navbar-brand-pm {
+    margin-left: 5rem;
+}
+
+.navbar-brand-pm div p {
+    color: v.$blanco;
+    font-size: 2rem;
+    font-family: v.$fuente_principal;
+    font-weight: v.$bold;
+    margin: 0;
+}
+
+.inicio-pm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.inicio-pm:hover {
+    transform: scale(1.15);
+}
+
+.panel-section {
+    padding: 120px 140px;
+}
+
+.section-a,
+.section-b {
+    background: #f4f6f9;
+    ;
+}
+
+.panel-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.panel-text h1,
+.panel-text h2 {
+    font-family: v.$fuente_principal;
+    font-size: 4.2rem;
+    font-weight: v.$bold;
+    color: v.$azul_oscuro;
+    margin-bottom: 20px;
+}
+
+.panel-image {
+    background: #dcdcdc;
+    height: 330px;
+    border-radius: 12px;
+}
+
+.contenido-a {
+    margin-top: 60px;
+    background: #ffffff;
+    padding: 60px;
+    border-radius: 12px;
+    display: none;
+    position: relative;
+}
+
+.video-placeholder {
+    background: #e0e0e0;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 30px 0;
+    font-weight: 600;
+}
+
+.btn-pm {
+    display: inline-block;
+    padding: 2rem 4rem;
+    background: v.$azul_oscuro;
+    color: #fff;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: v.$bold;
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin: 2rem 0;
+}
+
+.cerrar {
+    position: absolute;
+    top: 2rem;
+    right: 2.5rem;
+    font-size: 3rem;
+    cursor: pointer;
+    font-weight: bold;
+    color: #FFF;
+    background-color: v.$rojo;
+    width: 5rem;
+    height: 5rem;
+    text-align: center;
+    transition: .3s;
+}
+
+.cerrar:hover {
+    color: #000;
+    transform: scale(1.05);
+}
+
+.seccion-modulos {
+    background-color: v.$azul_oscuro;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.contenedor-modulos {
+    max-width: 150rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    padding: 2rem;
+
+    @include m.tablet {
+        padding: 4rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include m.desktop {
+        padding: 6rem;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+.modulo {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-direction: column;
+    text-align: center;
+    //background-color: v.$oro;
+    background: linear-gradient(135deg, #ffd76a, #f1b94a);
+    border-radius: 2rem;
+    padding: 4rem 1rem;
+    transition-duration: .3s;
+}
+
+.modulo:hover {
+    transform: scale(1.02);
+}
+
+.modulo:first-child {
+    @include m.tablet {
+        grid-column: 1 / 3;
+    }
+
+    @include m.desktop {
+        grid-column: 1 / 4;
+    }
+}
+
+.titulo-seccion-modulos {
+    font-family: v.$fuente_principal;
+    font-weight: v.$bold;
+    color: #f6c453;
+    font-size: 5rem;
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.icono-modulo {
+    background-color: #FFF;
+    padding: 2rem;
+    border-radius: 100%;
+    margin-bottom: 2rem;
+}
+
+.icono-modulo-1 {
+    background-image: url("../img/crece_icon_1.jpg");
+    height: 8rem;
+    width: 8rem;
+    background-size: cover;
+    background-position: center center;
+}
+
+.icono-modulo-2 {
+    background-image: url("../img/crece_icon_2.jpg");
+    height: 8rem;
+    width: 8rem;
+    background-size: cover;
+    background-position: center center;
+}
+
+.icono-modulo-3 {
+    background-image: url("../img/crece_icon_3.jpg");
+    height: 8rem;
+    width: 8rem;
+    background-size: cover;
+    background-position: center center;
+}
+
+.icono-modulo-4 {
+    background-image: url("../img/crece_icon_4.jpg");
+    height: 8rem;
+    width: 8rem;
+    background-size: cover;
+    background-position: center center;
+}
+
+.icono-modulo-5 {
+    background-image: url("../img/crece_icon_5.jpg");
+    height: 8rem;
+    width: 8rem;
+    background-size: cover;
+    background-position: center center;
+}
+
+.icono-modulo-6 {
+    background-image: url("../img/crece_icon_6.jpg");
+    height: 8rem;
+    width: 8rem;
+    background-size: cover;
+    background-position: center center;
+}
+
+.icono-modulo-7 {
+    background-image: url("../img/crece_icon_7.jpg");
+    height: 8rem;
+    width: 8rem;
+    background-size: cover;
+    background-position: center center;
+}
+
+.num-modulo {
+    font-family: v.$fuente_principal;
+    font-weight: v.$bold;
+    font-size: 4rem;
+    margin: 1rem 0 0 0;
+    padding: 0;
+}
+
+.titulo-modulo {
+    font-family: v.$fuente_principal;
+    margin: 0 0 2rem 0;
+    padding: 0;
+    font-size: 3.5rem;
+
+    @include m.tablet {
+        font-size: 2.4rem;
+    }
+
+    @include m.desktop {
+        font-size: 2.2rem;
+    }
+}
+
+.descripcion-modulo {
+    margin-top: 2rem;
+    font-family: v.$fuente_secundaria;
+}
+
+@media(max-width:1000px) {
+    .panel-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modules-row {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-section {
+        padding: 80px 40px;
+    }
+}
+
+.divisor {
+    border-top: 0.2rem dashed #d0d0d0;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.modulo--bloqueado {
+    opacity: 0.7;
+    filter: grayscale(1);
+    pointer-events: none;
+    /* Evita que el usuario haga clic */
+    background-color: #cec5ae;
+}
+
+.modulo--bloqueado .titulo-modulo,
+.modulo--bloqueado .num-modulo {
+    color: #888;
+}
+
+.btn-pm--bloqueado {
+    background-color: #cec5ae;
+    color: #666;
+    cursor: not-allowed;
+    border: none;
+}
+
+.candado-pm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.campo-girasol {
+    background-image: url("../img/campo-girasol-static.jpg");
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.titulo-c-a {
+    text-align: center;
+    font-size: 4rem;
+    color: v.$azul_oscuro;
+    font-family: v.$fuente_principal;
+    font-weight: v.$bold;
+}
+
+.modulo-progreso-visual {
+    display: flex;
+    justify-content: center;
+    /* Centra los círculos horizontalmente */
+    align-items: center;
+    gap: 1.5rem;
+    /* Más espacio entre círculos grandes */
+    margin: 20px 0;
+    /* Espaciado vertical */
+    width: 100%;
+    /* Ocupa todo el ancho para centrar bien */
+}
+
+.circulo-progreso {
+    width: 3rem;
+    /* Círculos más grandes */
+    height: 3rem;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    border: 2px solid #ccc;
+    /* Borde un poco más grueso */
+    transition: all 0.3s ease;
+}
+
+.circulo-progreso--activo {
+    background-color: #12307D;
+    /* Color institucional */
+    border-color: #12307D;
+    box-shadow: 0 0 8px rgba(18, 48, 125, 0.5);
+    /* Resplandor para destacar progreso */
+}
+
+/* Efecto visual cuando el módulo está disponible */
+.modulo:not(.modulo--bloqueado):hover .circulo-progreso--activo {
+    transform: scale(1.2);
+}
+
+/* Contenedor del módulo */
+.modulo {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    /* Permite crecimiento físico */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* El truco del Grid para animar de 0 a auto */
+.descripcion-expandible {
+    display: grid;
+    grid-template-rows: 0fr;
+    /* Altura física de 0px */
+    transition: grid-template-rows 0.5s ease, opacity 0.3s ease;
+    opacity: 0;
+    overflow: hidden;
+}
+
+/* Requisito para que el grid colapse correctamente */
+.descripcion-contenido {
+    min-height: 0;
+}
+
+/* Estilo del texto de descripción */
+.descripcion-modulo {
+    padding-top: 1.5rem;
+    font-size: 2rem;
+    line-height: 1.5;
+    color: #444;
+    text-align: center;
+    margin: 0;
+    transition: .3s;
+}
+
+/* HOVER: Aquí la tarjeta crece físicamente */
+.modulo:not(.modulo--bloqueado):hover .descripcion-expandible {
+    grid-template-rows: 1fr;
+    /* Ocupa el espacio real del texto */
+    opacity: 1;
+}
+
+/* Círculos centrados y grandes */
+.modulo-progreso-visual {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 15px 0;
+}
+
+.circulo-progreso {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    border: 2px solid #ccc;
+}
+
+.circulo-progreso--activo {
+    background-color: #12307D;
+    border-color: #12307D;
+}
+
+.btn-pm--seleccionable {
+    background-color: #27ae60;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border: solid #1b7440;
+}
+
+.btn-pm--seleccionable:hover {
+    transform: scale(1.1);
+}
+
+/* ESTILOS PARA LA NUEVA SECCIÓN B */
+.cierre-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.cierre-container h2, .cierre-container h3 {
+    color: v.$azul_oscuro;
+    font-family: v.$fuente_principal;
+    font-weight: v.$bold;
+    font-size: 1.5em;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Formulario de observación */
+.form-observacion {
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+.obs-pregunta { margin-bottom: 1.5rem; }
+.obs-pregunta p { font-weight: bold; color: #333; margin-bottom: 0.8rem; }
+.obs-pregunta label { display: block; margin-bottom: 0.5rem; cursor: pointer; color: #555; }
+.obs-pregunta input[type="radio"] { margin-right: 10px; }
+
+/* Tarjetas Flip */
+.tarjetas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+.tarjeta-flip {
+    background-color: transparent;
+    width: 100%;
+    height: 25rem;
+    perspective: 1000px;
+}
+.tarjeta-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 12px;
+}
+.tarjeta-flip:hover .tarjeta-inner {
+    transform: rotateY(180deg);
+}
+.tarjeta-frente, .tarjeta-dorso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    box-sizing: border-box;
+}
+.tarjeta-frente {
+    background-color: var(--primary, #12307D);
+    color: white;
+    font-weight: v.$bold;
+    font-family: v.$fuente_principal;
+    font-size: 1.5em;
+}
+.tarjeta-dorso {
+    background-color: #f8f9fa;
+    color: #333;
+    transform: rotateY(180deg);
+    border: 2px solid var(--primary, #12307D);
+}
+.tarjeta-dorso ul {
+    text-align: left;
+    padding-left: 1.2rem;
+    margin: 0;
+    line-height: 1.4;
+}
+.tarjeta-dorso li { margin-bottom: 0.5rem; }
+
+/* Frase destacada */
+.frase-destacada {
+    background-color: #eef2f7;
+    border-left: 6px solid var(--unam-oro, #c79e57);
+    padding: 2rem;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin: 3rem 0;
+    color: var(--primary, #12307D);
+    line-height: 1.6;
+}
+
+.botones-finales {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+.logo-crece-cierre { width: 180px; margin-top: 3rem; }

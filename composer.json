@@ -1,0 +1,23 @@
+{
+    "name": "alane/sistema-crece",
+    "description": "Sistema web CRECE con PHP, MVC, SQL, SASS y Gulp",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers",
+            "Model\\" : "./models",
+            "Classes\\" : "./classes"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alan Enrique López Mata",
+            "email": "alopezm1612@alumno.ipn.mx"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^7.0",
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
