@@ -13,12 +13,6 @@
     height: 0;
 }
 
-.form-check-input:focus + .form-check-label {
-    outline: 1rem solid #007bff;
-    outline-offset: 2px;
-    transform: scale(1.01);
-}
-
 .campo-encuesta .form-check {
     padding-left: 0;
     margin-bottom: 1rem;
@@ -27,33 +21,46 @@
 .campo-encuesta .form-check-label {
     display: block;
     width: 100%;
-    padding: 1.5rem; /* Más espacio interno para la fuente grande */
-    border: 3px solid #dee2e6;
+    padding: 1.5rem;
+    border: 2px solid #dee2e6;
     border-radius: 12px;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+
     text-align: center;
-    font-size: 2rem; /* Tamaño solicitado */
+    font-size: 2rem;
+
+    transition:
+        border-color .15s ease,
+        background-color .15s ease;
 }
 
-/* Hover y Estado Seleccionado */
-.campo-encuesta .form-check-label:hover {
-    background-color: #f0f7ff;
-    border-color: #0d6efd;
+/* Hover solo para dispositivos con mouse */
+@media (hover: hover) {
+    .campo-encuesta .form-check-label:hover {
+        border-color: #9ec5fe;
+        background-color: #f8f9fa;
+    }
 }
 
-.campo-encuesta .form-check-input:checked + .form-check-label {
+/* Focus simple tipo navegador */
+.form-check-input:focus+.form-check-label {
+    outline: 2px solid black;
+    outline-offset: 2px;
+}
+
+/* Estado seleccionado (el único fuerte visualmente) */
+.campo-encuesta .form-check-input:checked+.form-check-label {
     background-color: #0d6efd;
     color: white;
-    border-color: #0a58ca;
-    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3);
+    border-color: #0d6efd;
 }
 
 /* Ajuste del Input de Texto "Otro" */
 .campo-encuesta .form-control {
     font-size: 2rem;
     padding: 1rem;
-    height: auto; /* Para que crezca con la fuente */
+    height: auto;
+    /* Para que crezca con la fuente */
     border: 2px solid #ced4da;
     margin-top: 1rem;
 }
@@ -80,7 +87,7 @@
         &::-webkit-slider-thumb {
             -webkit-appearance: none; // IMPORTANTE: Sin esto no cambia en Chrome
             appearance: none;
-            height: 3.5rem !important; 
+            height: 3.5rem !important;
             width: 3.5rem !important;
             background: #007bff !important;
             border-radius: 50%;
@@ -126,7 +133,7 @@
     }
 }
 
-.cuestionario-logout{
+.cuestionario-logout {
     margin: 0;
     padding: 1rem 1rem;
     background-color: v.$azul_oscuro;
