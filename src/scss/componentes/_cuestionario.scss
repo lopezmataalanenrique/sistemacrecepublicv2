@@ -59,8 +59,7 @@
 .campo-encuesta .form-control {
     font-size: 2rem;
     padding: 1rem;
-    height: auto;
-    /* Para que crezca con la fuente */
+    height: auto; /* Para que crezca con la fuente */
     border: 2px solid #ced4da;
     margin-top: 1rem;
 }
@@ -87,7 +86,7 @@
         &::-webkit-slider-thumb {
             -webkit-appearance: none; // IMPORTANTE: Sin esto no cambia en Chrome
             appearance: none;
-            height: 3.5rem !important;
+            height: 3.5rem !important; 
             width: 3.5rem !important;
             background: #007bff !important;
             border-radius: 50%;
@@ -133,7 +132,7 @@
     }
 }
 
-.cuestionario-logout {
+.cuestionario-logout{
     margin: 0;
     padding: 1rem 1rem;
     background-color: v.$azul_oscuro;
