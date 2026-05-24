@@ -61,7 +61,7 @@
                                     type="email"
                                     id="email"
                                     name="email"
-                                    placeholder="Tú correo" />
+                                    placeholder="Tu correo" />
                             </div>
                         </div>
                     </div>

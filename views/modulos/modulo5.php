@@ -115,7 +115,7 @@ function getEstado($id, $actual)
 <main class="cuerpo-modulo">
     <section class="encabezado-modulo">
         <h1>Módulo 5. Sigo en marcha</h1>
-        <p class="texto-justificado">¡Te felicito por llegar a este punto del programa! Tú constancia es una muestra de tu compromiso para tener una mejor relación con tu condición avanzando en camino hacía una vida plena y valiosa.</p>
+        <p class="texto-justificado">¡Te felicito por llegar a este punto del programa! Tu constancia es una muestra de tu compromiso para tener una mejor relación con tu condición avanzando en camino hacía una vida plena y valiosa.</p>
         <p class="texto-justificado">Este módulo se orienta a la forma de relacionarse entre una condición de salud que te sucede y las elecciones que tomas en diferentes momentos de tu vida cotidiana.</p>
 
         <form method="POST" action="/guardar-actividad" id="form-intro-m5">

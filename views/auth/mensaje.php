@@ -39,7 +39,7 @@
     <div class="formulario">
         <div class="auth-container">
             <div class="auth-header">
-                <h1 class="auth-title">¡Confirma tú correo electrónico!</h1>
+                <h1 class="auth-title">¡Confirma Tu correo electrónico!</h1>
                 <p class="auth-subtitle">Hemos enviado las instrucciones para confirmar tu cuenta a tu correo.</p>
             </div>
 

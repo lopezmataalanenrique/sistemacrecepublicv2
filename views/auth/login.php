@@ -62,7 +62,7 @@
                                 <input
                                     type="email"
                                     id="email"
-                                    placeholder="Tú correo"
+                                    placeholder="Tu correo"
                                     name="email"
                                     autocomplete="username" />
                             </div>
@@ -78,7 +78,7 @@
                                 <input
                                     type="password"
                                     id="password"
-                                    placeholder="Tú contraseña"
+                                    placeholder="Tu contraseña"
                                     name="password" 
                                     autocomplete="current-password"
                                     />

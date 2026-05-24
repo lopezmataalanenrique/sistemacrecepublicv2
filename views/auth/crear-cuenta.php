@@ -80,7 +80,7 @@
                                     type="text"
                                     id="apellido_paterno"
                                     name="apellido_paterno"
-                                    placeholder="Tú apellido"
+                                    placeholder="Tu apellido"
                                     autocomplete="family-name"
                                     value="<?php echo s($usuario->apellido_paterno) ?>" />
                             </div>
@@ -97,7 +97,7 @@
                                     type="email"
                                     id="email"
                                     name="email"
-                                    placeholder="Tú correo principal"
+                                    placeholder="Tu correo principal"
                                     autocomplete="username"
                                     value="<?php echo s($usuario->email) ?>" />
                             </div>
@@ -114,7 +114,7 @@
                                     type="email"
                                     id="email_alt"
                                     name="email_alt"
-                                    placeholder="Tú correo alterno"
+                                    placeholder="Tu correo alterno"
                                     autocomplete="off"
                                     value="<?php echo s($usuario->email_alt) ?>" />
                             </div>
@@ -159,7 +159,7 @@
                                     type="password"
                                     id="password_confirm"
                                     name="password_confirm"
-                                    placeholder="Tú contraseña de nuevo"
+                                    placeholder="Tu contraseña de nuevo"
                                     autocomplete="new-password" />
                             </div>
                         </div>

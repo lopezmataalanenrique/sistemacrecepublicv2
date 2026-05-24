@@ -40,7 +40,7 @@
     <div class="formulario">
         <div class="auth-container">
             <div class="auth-header">
-                <h1 class="auth-title">Reestablecer tú contrasela</h1>
+                <h1 class="auth-title">Reestablecer Tu contrasela</h1>
                     <p class="auth-subtitle">Coloca tu nueva contraseña a continuación: </p>
             </div>
             <div class="auth-card">
@@ -77,7 +77,7 @@
                                 type="password"
                                 id="password_confirm"
                                 name="password_confirm"
-                                placeholder="Tú contraseña de nuevo" 
+                                placeholder="Tu contraseña de nuevo" 
                                 autocomplete="new-password"
                                 />
                             </div>
