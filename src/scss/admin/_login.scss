@@ -1,0 +1,67 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.bg-admin {
+    display: flex;
+    flex: auto;
+    background-color: v.$azul-oscuro;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-login {
+    background-color: v.$fondo_claro;
+    min-width: 50rem;
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.admin-login-header {
+    text-align: center;
+
+    h1 {
+        font-size: 4.2rem;
+        font-family: v.$fuente_principal;
+        font-weight: v.$bold;
+        color: v.$azul-oscuro;
+    }
+}
+
+.admin-login-body {
+    display: flex;
+    flex-direction: column;
+
+    label {
+        font-family: v.$fuente_principal;
+        font-weight: v.$bold;
+        margin-bottom: 0.5rem;
+    }
+
+    input {
+        width: 100%;
+        padding: 1rem;
+        font-family: v.$fuente_secundaria;
+        margin-bottom: 1.2rem;
+        border-radius: 1rem;
+        border: solid rgba($color: v.$azul-oscuro, $alpha: 0.3) 0.2rem;
+    }
+
+    input:hover {
+        border: solid rgba($color: v.$azul-oscuro, $alpha: 0.6) 0.2rem;
+    }
+
+    .admin-login-button {
+        margin-top: 4rem;
+        input {
+            background-color: v.$azul-oscuro;
+            font-size: 3.2rem;
+            font-family: v.$fuente_principal;
+            font-weight: v.$bold;
+            color: v.$blanco;
+            transition: ease 0.3s;
+        }
+        input:hover {
+            transform: scale(1.03);
+        }
+    }
+}

@@ -119,4 +119,29 @@ $router->post('/c-salida', [Controllers\CuestionarioController::class, 'salida']
 
 $router->get('/diploma', [Controllers\CreceController::class, 'diploma']);
 
+use Controllers\AdminController;
+
+$router->get('/acceso-personal', [AdminController::class, 'login']);
+$router->post('/acceso-personal', [AdminController::class, 'login']);
+
+$router->get('/panel-control', [AdminController::class, 'panel']);
+
+$router->get('/control-personal', [AdminController::class, 'indexPersonal']);
+$router->get('/crear-personal', [AdminController::class, 'crearPersonal']);
+$router->post('/crear-personal', [AdminController::class, 'crearPersonal']);
+$router->get('/actualizar-personal', [AdminController::class, 'actualizarPersonal']);
+$router->post('/actualizar-personal', [AdminController::class, 'actualizarPersonal']);
+$router->post('/estado-personal', [AdminController::class, 'estadoPersonal']);
+
+// La pantalla visual con el botón de descargar
+$router->get('/control-usuarios', [AdminController::class, 'controlUsuarios']);
+
+// La ruta que hace la descarga (la que creamos en el paso anterior)
+$router->get('/exportar-usuarios', [AdminController::class, 'exportarUsuariosCSV']);
+
+// Rutas para exportar observaciones
+$router->get('/exportar-observaciones', [AdminController::class, 'exportarObservacionesCSV']);
+
+$router->get('/saber-mas', [CreceController::class, 'saberMas']);
+
 $router->comprobarRutas();
