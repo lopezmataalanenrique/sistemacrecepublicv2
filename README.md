@@ -20,9 +20,10 @@ El proyecto es desarrollado en colaboración entre la **Escuela Superior de Cóm
 10. [Flujo de usuario](#flujo-de-usuario)
 11. [Cuestionarios clínicos](#cuestionarios-clínicos)
 12. [Módulos de intervención](#módulos-de-intervención)
-13. [Archivos multimedia](#archivos-multimedia)
-14. [Tecnologías utilizadas](#tecnologías-utilizadas)
-15. [Autores](#autores)
+13. [Panel de administración](#panel-de-administración)
+14. [Archivos multimedia](#archivos-multimedia)
+15. [Tecnologías utilizadas](#tecnologías-utilizadas)
+16. [Autores](#autores)
 
 ---
 
@@ -33,7 +34,7 @@ Antes de comenzar, asegúrate de tener instalado lo siguiente:
 | Herramienta | Versión requerida |
 |---|---|
 | **PHP** | 8.1.34 |
-| **MySQL** | 8.0.45 |
+| **MySQL** | 8.0.46 |
 | **Node.js** | Última versión LTS |
 | **npm** | Incluido con Node.js |
 | **Composer** | Última versión estable |
@@ -203,8 +204,9 @@ sistemaCRECE/
 ├── classes/                    # Clases auxiliares
 │   └── Correo.php              #   Envío de correos (PHPMailer)
 ├── controllers/                # Controladores MVC
+│   ├── AdminController.php     #   Panel de administración y gestión de personal/usuarios
 │   ├── CreceController.php     #   Panel de módulos y actividades
-│   ├── CuestionarioController.php  #   Cuestionarios clínicos
+│   ├── CuestionarioController.php  #   Cuestionarios clínicos (iniciales y de salida)
 │   ├── LoginController.php     #   Autenticación y registro
 │   └── ResultadosController.php    #   Resultados de evaluación
 ├── includes/                   # Configuración y utilidades
@@ -215,6 +217,7 @@ sistemaCRECE/
 ├── models/                     # Modelos (ActiveRecord)
 │   ├── ActiveRecord.php        #   Clase base ORM
 │   ├── Encuesta.php            #   Tabla: encuestas_usuario
+│   ├── PersonalCrece.php       #   Tabla: personal_crece
 │   ├── ProgresoModulo.php      #   Tabla: progreso_modulos
 │   ├── Respuesta.php           #   Tabla: respuestas
 │   ├── RespuestaActividad.php  #   Tabla: respuestas_actividades
@@ -243,7 +246,12 @@ sistemaCRECE/
 │   ├── inicio.php              #   Página de inicio (landing)
 │   ├── auth/                   #   Vistas de autenticación
 │   ├── crece/                  #   Panel de módulos y resultados
-│   ├── cuestionarios/          #   Cuestionarios clínicos
+│   ├── admin/                  #   Panel de administración
+│   │   ├── login.php           #     Login del personal
+│   │   ├── panel.php           #     Panel de control
+│   │   ├── personal/           #     CRUD de personal (crear, actualizar, index)
+│   │   └── usuarios/           #     Control y descarga de datos de usuarios
+│   ├── cuestionarios/          #   Cuestionarios clínicos (iniciales y de salida)
 │   ├── modulos/                #   Módulos de intervención (1-7)
 │   └── templates/              #   Componentes parciales (alertas)
 ├── Router.php                  # Enrutador del sistema
@@ -257,18 +265,32 @@ sistemaCRECE/
 
 ## Base de datos
 
-El sistema utiliza **MySQL 8.0.45** con las siguientes tablas principales:
+El sistema utiliza **MySQL 8.0.46** con las siguientes tablas principales:
 
 ### Tablas del sistema
 
 | Tabla | Descripción | Columna ID |
 |---|---|---|
 | `usuarios` | Registro de usuarios con datos personales, credenciales y estatus | `id_usuario` |
-| `encuestas_usuario` | Cabecera de cada encuesta/cuestionario aplicado a un usuario | `id_encuesta` |
+| `encuestas_usuario` | Cabecera de cada encuesta/cuestionario aplicado a un usuario (incluye tipo de aplicación) | `id_encuesta` |
 | `respuestas` | Respuestas individuales de cada pregunta de los cuestionarios | `id_respuesta` |
 | `progreso_modulos` | Progreso del usuario en cada módulo de intervención | `id_progreso` |
 | `respuestas_actividades` | Respuestas a las actividades dentro de los módulos | `id_res_act` |
+| `respaldo_respuestas` | Respaldo histórico de respuestas de actividades | — |
+| `personal_crece` | Cuentas del personal administrativo y psicólogos | `id_personal` |
+
+### Tablas catálogo
+
+| Tabla | Descripción | Columna ID |
+|---|---|---|
 | `cat_modulos` | Catálogo de módulos (nombre, descripción) | `id_modulo` |
+| `cat_estatus_programa` | Catálogo de estatus del usuario en el programa | `id_estatus` |
+| `cat_sexos` | Catálogo de sexos (Hombre, Mujer, No binario) | `id_sexo` |
+| `cat_tipos_tratamiento` | Catálogo de tipos de tratamiento médico/psicológico | `id_tratamiento` |
+| `cuestionarios` | Catálogo de cuestionarios/instrumentos del sistema | `id_cuestionario` |
+| `tipo_aplicacion` | Tipo de aplicación del cuestionario (Inicial, Módulo, Final) | `id_tipo` |
+| `preguntas` | Preguntas de cada cuestionario | `id_pregunta` |
+| `opciones_respuesta` | Opciones de respuesta de cada pregunta | `id_opcion_respuesta` |
 
 ### ORM: ActiveRecord
 
@@ -280,15 +302,43 @@ El proyecto implementa un ORM personalizado (`ActiveRecord.php`) que provee:
 - **Sanitización:** Escape automático de datos con `mysqli::escape_string()`
 - **Soporte NULL:** Manejo correcto de valores `NULL` en inserciones y actualizaciones
 
-### Estatus de usuario
+### Estatus de usuario (`cat_estatus_programa`)
 
 | ID | Estatus | Descripción |
 |---|---|---|
-| 1 | Evaluación inicial | Usuario recién registrado, completando cuestionarios |
-| 2 | Riesgo detectado | Riesgo suicida detectado en cuestionario MINI |
+| 1 | En Progreso | Usuario recién registrado, completando cuestionarios iniciales |
+| 2 | Canalizado por resultados | Riesgo suicida detectado en cuestionario MINI |
 | 3 | Activo | Usuario que completó la evaluación y accede a los módulos |
-| 5 | Canalizado (menor) | Menor de 18 años, datos anonimizados |
-| 6 | Canalizado (tratamiento) | Usuario en tratamiento psiquiátrico/psicológico activo |
+| 4 | Completado | Usuario que finalizó todos los módulos e instrumentos de salida |
+| 5 | Canalizado menor edad | Menor de 18 años, datos anonimizados |
+| 6 | Canalizado tipo tratamiento | Usuario en tratamiento psiquiátrico/psicológico activo |
+
+### Tipos de aplicación (`tipo_aplicacion`)
+
+| ID | Tipo | Descripción |
+|---|---|---|
+| 1 | Inicial | Cuestionarios aplicados durante la evaluación inicial |
+| 2 | Módulo | Cuestionarios aplicados durante los módulos de intervención |
+| 3 | Final | Instrumentos de salida aplicados al completar los 7 módulos |
+
+### Catálogo de cuestionarios (`cuestionarios`)
+
+| ID | Nombre | Fase |
+|---|---|---|
+| 1 | Sin cuestionarios pendientes | — |
+| 2 | Sociodemográfico | Inicial |
+| 3 | PSS-10 | Inicial / Final |
+| 4 | MINI | Inicial |
+| 5 | PHQ-9 | Inicial / Final |
+| 6 | GAD-7 | Inicial / Final |
+| 7 | AAQ-II | Inicial / Final |
+| 8 | WHO-5 | Inicial / Final |
+| 9 | SCS | Inicial / Final |
+| 10 | WHOQOL-BREF | Inicial / Final |
+| 11 | MAAS | Inicial / Final |
+| 12 | APOI | Inicial / Final |
+| 13 | Instrumentos de Salida | Final |
+| 14 | Programa Completado | — |
 
 ---
 
@@ -310,7 +360,7 @@ El proyecto implementa un ORM personalizado (`ActiveRecord.php`) que provee:
 | GET | `/tipoTratamiento` | `LoginController::tipoTratamiento` | Aviso de canalización por tratamiento |
 | GET | `/canalizacion` | `LoginController::canalizacion` | Aviso de canalización por riesgo |
 
-### Rutas protegidas (cuestionarios clínicos)
+### Rutas protegidas (cuestionarios clínicos — evaluación inicial)
 
 | Método | Ruta | Controlador | Cuestionario |
 |---|---|---|---|
@@ -323,17 +373,38 @@ El proyecto implementa un ORM personalizado (`ActiveRecord.php`) que provee:
 | GET/POST | `/c-who-5` | `CuestionarioController::who5` | Bienestar de la OMS (WHO-5) |
 | GET/POST | `/c-scs` | `CuestionarioController::scs` | Escala de Autocompasión (SCS) |
 | GET/POST | `/c-whoqol-bref` | `CuestionarioController::whoqolbref` | Calidad de Vida de la OMS (WHOQOL-BREF) |
-| GET/POST | `/c-apoi` | `CuestionarioController::apoi` | Actitudes hacia intervenciones en línea (APOI) |
 | GET/POST | `/c-maas` | `CuestionarioController::maas` | Atención Plena (MAAS) |
+| GET/POST | `/c-apoi` | `CuestionarioController::apoi` | Actitudes hacia intervenciones en línea (APOI) |
+
+### Rutas protegidas (instrumentos de salida)
+
+| Método | Ruta | Controlador | Descripción |
+|---|---|---|---|
+| GET/POST | `/c-salida` | `CuestionarioController::salida` | Instrumentos de salida (re-aplicación de escalas al finalizar los módulos) |
 
 ### Rutas protegidas (módulos e intervención)
 
 | Método | Ruta | Controlador | Descripción |
 |---|---|---|---|
 | GET/POST | `/resultados-iniciales` | `ResultadosController::resultadosIniciales` | Resultados de la evaluación inicial |
-| GET | `/panel-modulos` | `CreceController::panel` | Panel principal con los 7 módulos |
+| GET/POST | `/panel-modulos` | `CreceController::panel` | Panel principal con los 7 módulos |
 | GET/POST | `/modulo1` a `/modulo7` | `CreceController::modulo1-7` | Contenido de cada módulo |
+| POST | `/elegir-modulo` | `CreceController::elegirModulo` | Seleccionar módulo dentro de un tier |
 | GET/POST | `/guardar-actividad` | `CreceController::guardarActividad` | Guardar respuesta de actividad |
+| GET | `/diploma` | `CreceController::diploma` | Diploma de finalización del programa |
+
+### Rutas protegidas (panel de administración)
+
+| Método | Ruta | Controlador | Descripción |
+|---|---|---|---|
+| GET/POST | `/acceso-personal` | `AdminController::login` | Inicio de sesión del personal |
+| GET | `/panel-control` | `AdminController::panel` | Panel de control administrativo |
+| GET | `/control-personal` | `AdminController::indexPersonal` | Listado de personal registrado |
+| GET/POST | `/crear-personal` | `AdminController::crearPersonal` | Registrar nuevo psicólogo/administrador |
+| GET/POST | `/actualizar-personal` | `AdminController::actualizarPersonal` | Actualizar datos de personal |
+| POST | `/estado-personal` | `AdminController::estadoPersonal` | Activar/desactivar cuenta de personal |
+| GET | `/control-usuarios` | `AdminController::controlUsuarios` | Pantalla de control de usuarios |
+| GET | `/exportar-usuarios` | `AdminController::exportarUsuariosCSV` | Descarga de reporte CSV de pacientes |
 
 ---
 
@@ -351,7 +422,7 @@ El proyecto implementa un ORM personalizado (`ActiveRecord.php`) que provee:
    │
 4. Inicio de Sesión (/login)
    │
-5. Cuestionarios de evaluación inicial (secuenciales):
+5. Cuestionarios de evaluación inicial (secuenciales, tipo_aplicacion = 1 "Inicial"):
    │  Sociodemográfico → PSS-10 → MINI → PHQ-9 → GAD-7
    │  → AAQ-II → WHO-5 → SCS → WHOQOL-BREF → MAAS → APOI
    │
@@ -362,6 +433,12 @@ El proyecto implementa un ORM personalizado (`ActiveRecord.php`) que provee:
 7. Panel de Módulos (/panel-modulos) [Estatus 3]
    │
 8. Módulos de Intervención 1-7 (con actividades interactivas)
+   │
+9. Instrumentos de Salida (/c-salida) [tipo_aplicacion = 3 "Final"]
+   │  Re-aplicación: PSS-10 → PHQ-9 → GAD-7 → AAQ-II
+   │  → WHO-5 → SCS → WHOQOL-BREF → MAAS → APOI
+   │
+10. Programa Completado [Estatus 4] → Diploma (/diploma)
 ```
 
 ### Seguridad y tokens
@@ -374,6 +451,8 @@ El proyecto implementa un ORM personalizado (`ActiveRecord.php`) que provee:
 ---
 
 ## Cuestionarios clínicos
+
+### Evaluación inicial (`tipo_aplicacion` = 1)
 
 El sistema aplica una batería de instrumentos psicológicos validados como evaluación inicial:
 
@@ -391,6 +470,24 @@ El sistema aplica una batería de instrumentos psicológicos validados como eval
 | 10 | MAAS | Escala de Atención Plena | Mindfulness |
 | 11 | APOI | Actitudes hacia Intervenciones en Línea | Aceptabilidad |
 
+### Instrumentos de salida (`tipo_aplicacion` = 3)
+
+Al completar los 7 módulos de intervención, el usuario debe responder los **instrumentos de salida** (`id_cuestionario` = 13). Estos re-aplican las mismas escalas psicométricas de la evaluación inicial (excepto el Sociodemográfico y el MINI) para medir el cambio terapéutico:
+
+| # | Instrumento | Descripción |
+|---|---|---|
+| 1 | PSS-10 | Estrés Percibido (post-intervención) |
+| 2 | PHQ-9 | Depresión (post-intervención) |
+| 3 | GAD-7 | Ansiedad (post-intervención) |
+| 4 | AAQ-II | Flexibilidad psicológica (post-intervención) |
+| 5 | WHO-5 | Bienestar (post-intervención) |
+| 6 | SCS | Autocompasión (post-intervención) |
+| 7 | WHOQOL-BREF | Calidad de vida (post-intervención) |
+| 8 | MAAS | Atención plena (post-intervención) |
+| 9 | APOI | Aceptabilidad (post-intervención) |
+
+Una vez completados los instrumentos de salida, el `id_cuestionario_pendiente` del usuario cambia a **14** (Programa Completado) y su estatus pasa a **4** (Completado), habilitando la descarga del diploma.
+
 ---
 
 ## Módulos de intervención
@@ -405,7 +502,32 @@ Una vez completada la evaluación inicial, el usuario accede a **7 módulos de i
 | Módulo 4 | Disponible |
 | Módulos 5-7 | Bloqueados (se desbloquean con el progreso) |
 
-Cada módulo contiene múltiples actividades interactivas. El progreso se guarda automáticamente y se rastrea en la tabla `progreso_modulos`.
+Cada módulo contiene múltiples actividades interactivas. El progreso se guarda automáticamente y se rastrea en la tabla `progreso_modulos`. Al completar los 7 módulos, el sistema dirige al usuario a los **instrumentos de salida** (`/c-salida`).
+
+---
+
+## Panel de administración
+
+El sistema cuenta con un panel de administración independiente accesible en `/acceso-personal`, gestionado por el `AdminController` y el modelo `PersonalCrece`.
+
+### Roles del personal (`personal_crece`)
+
+| ID Rol | Rol | Permisos |
+|---|---|---|
+| 1 | Administrador | Gestión completa: CRUD de personal, control de usuarios, exportación de datos |
+| 2 | Psicólogo | Acceso al panel de control y visualización de datos |
+
+### Funcionalidades
+
+- **Gestión de personal:** Crear, actualizar y activar/desactivar cuentas de psicólogos y administradores (solo rol Admin).
+- **Control de usuarios:** Visualización de los usuarios registrados en el programa.
+- **Exportación de datos:** Descarga de reportes en formato CSV con los datos de pacientes y sus respuestas a cuestionarios (iniciales y de salida).
+
+### Seguridad del panel
+
+- Las contraseñas del personal se almacenan con **bcrypt**.
+- Las sesiones del panel administrativo son independientes de las sesiones de usuarios (`$_SESSION['admin_login']`).
+- Un administrador no puede desactivar su propia cuenta.
 
 ---
 
@@ -426,7 +548,7 @@ Estos directorios están incluidos en `.gitignore` para evitar que archivos pesa
 
 ### Backend
 - **PHP 8.1.34** — Lenguaje del servidor
-- **MySQL 8.0.45** — Base de datos relacional
+- **MySQL 8.0.46** — Base de datos relacional
 - **Composer** — Gestor de dependencias PHP
 - **PHPMailer 7.x** — Envío de correos electrónicos
 - **phpdotenv 5.x** — Gestión de variables de entorno

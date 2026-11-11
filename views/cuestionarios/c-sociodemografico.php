@@ -483,7 +483,7 @@
                         <input type="hidden" name="respuestas[111]" id="input-id-dolor"
                             value="<?php echo $respuestas[111] ?? '11100'; ?>">
 
-                        <div class="d-flex justify-content-between w-100 mt-2" style="font-size: 1.5rem;">
+                        <div class="d-flex justify-content-between w-100 mt-2">
                             <span>0 (Sin dolor)</span>
                             <span>10 (El peor)</span>
                         </div>
@@ -702,7 +702,6 @@
                         <label class="form-check-label" for="p118_4">No afectadas</label>
                     </div>
                 </div>
-                xº
                 <!-- Pregunta 19 -->
                 <div class="campo-encuesta card mb-4 p-4 shadow-sm">
                     <legend class="mb-3">19. ¿Debido a su condición crónica requiere de ser asistido por un cuidador?</legend>

@@ -161,3 +161,21 @@
     font-weight: v.$bold;
     padding: 2rem;
 }
+
+.carousel-caption h5 {
+    font-size: 1em;
+    color: v.$blanco;
+    font-weight: v.$bold;
+}
+
+.carousel-caption p {
+    font-size: 0.8em;
+    color: v.$blanco;
+    font-weight: v.$regular;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5); /* black with 50% opacity */
+    padding: 1rem;
+    border-radius: 1rem;
+}

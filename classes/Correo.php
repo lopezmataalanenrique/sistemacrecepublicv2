@@ -7,16 +7,16 @@ use PHPMailer\PHPMailer\PHPMailer;
 class Correo
 {
     public $email;
-    public $email_alt; // Nueva propiedad
+    public $email_alt;
     public $nombre;
     public $token;
 
-    public function __construct($email, $nombre, $token, $email_alt = '') // Agregamos parámetro opcional
+    public function __construct($email, $nombre, $token, $email_alt = '')
     {
         $this->email = $email;
         $this->nombre = $nombre;
         $this->token = $token;
-        $this->email_alt = $email_alt;
+        $this->email_alt = trim($email_alt);
     }
 
     private function configurarMailer()
@@ -31,14 +31,14 @@ class Correo
         $mail->SMTPSecure = 'tls';
         $mail->setFrom($_ENV['EMAIL_USER'], 'CRECE');
         $mail->CharSet = 'UTF-8';
-        $mail->isHTML(TRUE);
-        $mail->SMTPDebug = 2;
+        $mail->isHTML(true);
+        $mail->SMTPDebug = 0;
         $mail->Debugoutput = 'html';
 
-        // Enviamos al principal
+        // Destinatario principal
         $mail->addAddress($this->email, $this->nombre);
 
-        // Enviamos al alternativo si existe
+        // Destinatario alternativo (visible para ambos)
         if (!empty($this->email_alt)) {
             $mail->addAddress($this->email_alt, $this->nombre);
         }
@@ -50,19 +50,24 @@ class Correo
     {
         $mail = $this->configurarMailer();
         $mail->Subject = 'Confirmación de registro - acción requerida';
+        
+        $urlConfirmar = $_ENV['PROJECT_URL'] . '/confirmar-cuenta?token=' . $this->token;
+        $urlCrear = $_ENV['PROJECT_URL'] . '/crear-cuenta';
+
         $contenido = "<html>";
-        $contenido .= "<p>Estimado/a <strong>" . $this->nombre . "</strong>:</p>";
+        $contenido .= "<p>Estimado/a <strong>" . htmlspecialchars($this->nombre) . "</strong>:</p>";
         $contenido .= "<p>Gracias por registrarse. Para confirmar su correo electrónico y finalizar el proceso, le solicitamos ingresar al enlace de confirmación siguiente:</p>";
-        $contenido .= "<p><a href=" . $_ENV['PROJECT_URL'] . "/confirmar-cuenta?token=" . $this->token . ">Confirmar Cuenta</a></p>";
+        $contenido .= "<p><a href='" . $urlConfirmar . "'>Confirmar Cuenta</a></p>";
         $contenido .= "<p>Es importante considerar que cuenta con un plazo máximo de <strong>48 horas</strong> para realizar esta confirmación. Una vez transcurrido ese tiempo, los datos proporcionados serán eliminados automáticamente por motivos de seguridad.</p>";
-        $contenido .= "<p>Si desea participar y el plazo ha vencido, será necesario iniciar nuevamente el proceso de registro en el siguiente enlace: <a href=" . $_ENV['PROJECT_URL'] . "/crear-cuenta>Crear cuenta</a>.</p>";
+        $contenido .= "<p>Si desea participar y el plazo ha vencido, será necesario iniciar nuevamente el proceso de registro en el siguiente enlace: <a href='" . $urlCrear . "'>Crear cuenta</a>.</p>";
         $contenido .= "<p>Para cualquier duda o inconveniente, puede ponerse en contacto con nosotros.</p>";
         $contenido .= "<p>Saludos cordiales,</p>";
         $contenido .= "</html>";
+
         $mail->Body = $contenido;
-        $mail->send();
+
         if (!$mail->send()) {
-            error_log($mail->ErrorInfo);
+            error_log('Error al enviar correo de confirmación: ' . $mail->ErrorInfo);
         }
     }
 
@@ -70,18 +75,22 @@ class Correo
     {
         $mail = $this->configurarMailer();
         $mail->Subject = 'Reestablecer contraseña';
+
+        $urlRecuperar = $_ENV['PROJECT_URL'] . '/recuperar?token=' . $this->token;
+
         $contenido = "<html>";
-        $contenido .= "<p>Estimado/a <strong>" . $this->nombre . "</strong>:</p>";
-        $contenido .= "<p>Hemos recibido una solicitud para recuperar el acceso a tu cuenta. Para reestablecer tu contraseña, te pedimos ingresar al siguiente enlace:</p>";
-        $contenido .= "<p><a href=" . $_ENV['PROJECT_URL'] . "/recuperar?token=" . $this->token . ">Reestablecer contraseña</a></p>";
+        $contenido .= "<p>Estimado/a <strong>" . htmlspecialchars($this->nombre) . "</strong>:</p>";
+        $contenido .= "<p>Hemos recibido una solicitud para recuperar el acceso a tu cuenta. Para restablecer tu contraseña, te pedimos ingresar al siguiente enlace:</p>";
+        $contenido .= "<p><a href='" . $urlRecuperar . "'>Restablecer contraseña</a></p>";
         $contenido .= "<p>Por motivos de seguridad, este enlace estará disponible únicamente durante las próximas <strong>48 horas</strong>. Una vez transcurrido ese tiempo, el enlace se desactivará automáticamente y será necesario generar una nueva solicitud.</p>";
         $contenido .= "<p>Si usted no realizó esta solicitud o presenta algún inconveniente, ponte en contacto con nosotros.</p>";
         $contenido .= "<p>Saludos cordiales,</p>";
         $contenido .= "</html>";
+
         $mail->Body = $contenido;
-        $mail->send();
+
         if (!$mail->send()) {
-            error_log($mail->ErrorInfo);
+            error_log('Error al enviar correo de instrucciones: ' . $mail->ErrorInfo);
         }
     }
 }

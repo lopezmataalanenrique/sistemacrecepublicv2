@@ -5,8 +5,8 @@
                 <a href="/">
                     <img src="/build/img/logo-crece.webp" alt="Programa CRECE" class="auth-sidebar-logo">
                 </a>
-                <h2 class="titulo-bienvenida">Reestablece tu contraseña</h2>
-                <p class="texto-sidebar">Escribe tu correo electrónico para enviarte las instrucciones de reestablecimiento. </p>
+                <h2 class="titulo-bienvenida">Restablece tu contraseña</h2>
+                <p class="texto-sidebar">Escribe tu correo electrónico para enviarte las instrucciones de restablecimiento. </p>
                 <a href="/crear-cuenta" class="enlace-secundario-sidebar">¿No tienes cuenta? Regístrate aquí</a>
                 <a href="/login" class="enlace-secundario-sidebar">¿Ya tienes cuenta? Iniciar sesión</a>
             </div>
@@ -41,7 +41,7 @@
     <div class="formulario">
         <div class="auth-container">
             <div class="auth-header">
-                <h1 class="auth-title">Reestablecer contraseña</h1>
+                <h1 class="auth-title">Restablecer contraseña</h1>
                 <p class="auth-subtitle">Por favor, ingresa tu correo electrónico</p>
             </div>
             <div class="auth-card">

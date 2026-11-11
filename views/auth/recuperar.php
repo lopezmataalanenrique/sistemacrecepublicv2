@@ -6,7 +6,7 @@
                     <img src="/build/img/logo-crece.webp" alt="Programa CRECE" class="auth-sidebar-logo">
                 </a>
                 <h2 class="titulo-bienvenida">Bienvenido/a</h2>
-                <p class="texto-sidebar">A continuación puedes reestablecer tu contraseña.</p>
+                <p class="texto-sidebar">A continuación puedes restablecer tu contraseña.</p>
             </div>
             <a href="/">
                 <div class="regresar-inicio">
@@ -40,7 +40,7 @@
     <div class="formulario">
         <div class="auth-container">
             <div class="auth-header">
-                <h1 class="auth-title">Reestablecer Tu contrasela</h1>
+                <h1 class="auth-title">Restablecer t contraseña</h1>
                     <p class="auth-subtitle">Coloca tu nueva contraseña a continuación: </p>
             </div>
             <div class="auth-card">

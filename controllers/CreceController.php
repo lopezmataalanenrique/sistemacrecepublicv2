@@ -411,25 +411,24 @@ class CreceController
             $progreso = !empty($resultadoProgreso) ? array_shift($resultadoProgreso) : null;
 
             // 3. Lógica de avance de actividades y finalización de módulo
+            // 3. Lógica de avance de actividades y finalización de módulo
+            $siguiente_actividad = $act_id; // Por defecto, nos quedamos en la misma
+
             if ($progreso && $act_id === (int)$progreso->actividad_actual) {
                 $progreso->actividad_actual += 1;
-
+                
                 // Definición de límites por módulo
                 $limites_actividades = [
-                    1 => 5,
-                    2 => 5,
-                    3 => 5,
-                    4 => 5,
-                    5 => 5,
-                    6 => 5,
-                    7 => 5
+                    1 => 5, 2 => 5, 3 => 5, 4 => 5, 5 => 5, 6 => 5, 7 => 5
                 ];
                 $limite = $limites_actividades[$id_modulo] ?? 5;
 
                 if ($act_id >= $limite) {
                     $progreso->estatus = 'completado';
-                    // SOLUCIÓN 1: Actualizar fecha_finalizacion
                     $progreso->fecha_finalizacion = date('Y-m-d H:i:s');
+                    $siguiente_actividad = 'completado'; // Hash especial si terminó
+                } else {
+                    $siguiente_actividad = $progreso->actividad_actual; // Avanza a la siguiente
                 }
 
                 $progreso->guardar();
@@ -437,13 +436,19 @@ class CreceController
                 // Evaluar desbloqueos de siguientes módulos
                 if ($progreso->estatus === 'completado') {
                     self::evaluarDesbloqueos($id_usuario);
-
-                    // SOLUCIÓN 2: Verificar si terminó TODO el programa
                     self::verificarFinalizacionGlobal($id_usuario);
                 }
+            } else {
+                // Si guardó una actividad pasada, lo regresamos a su progreso máximo actual
+                $siguiente_actividad = $progreso->actividad_actual; 
             }
 
-            header("Location: /modulo" . $id_modulo);
+            // REDIRECCIÓN INTELIGENTE CON ANCLAS
+            if ($siguiente_actividad === 'completado') {
+                header("Location: /modulo" . $id_modulo . "#modulo-completado");
+            } else {
+                header("Location: /modulo" . $id_modulo . "#act" . $siguiente_actividad);
+            }
             exit;
         }
     }
@@ -591,4 +596,50 @@ public static function diploma(Router $router) {
         'fecha' => $fecha
     ]);
 }
+
+public static function saberMas(Router $router) {
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+
+        if (!isset($_SESSION['login']) || !$_SESSION['login']) {
+            header('Location: /');
+            return;
+        }
+
+        // 1. Definir la ruta física de la carpeta en el servidor
+        // Usamos $_SERVER['DOCUMENT_ROOT'] para tener la ruta absoluta
+        $carpeta = $_SERVER['DOCUMENT_ROOT'] . '/build/sabermas';
+        $archivos_info = [];
+
+        // 2. Verificar si la carpeta existe para evitar errores
+        if (is_dir($carpeta)) {
+            // Buscamos todos los archivos .pdf dentro de la carpeta
+            $archivos = glob($carpeta . '/*.pdf');
+
+            foreach ($archivos as $archivo) {
+                $nombre_archivo = basename($archivo); // Ej: "guia_de_relajacion.pdf"
+                
+                // Limpiamos el nombre para mostrarlo bonito en pantalla
+                // Quitamos el .pdf y cambiamos guiones/guiones bajos por espacios
+                $nombre_limpio = str_replace(['.pdf', '_', '-'], ['', ' ', ' '], $nombre_archivo);
+                $nombre_limpio = ucwords(strtolower($nombre_limpio)); // Ej: "Guia De Relajacion"
+
+                // Obtenemos el peso del archivo en Megabytes
+                $peso_mb = round(filesize($archivo) / 1024 / 1024, 2);
+
+                $archivos_info[] = [
+                    'nombre_limpio' => $nombre_limpio,
+                    'nombre_archivo' => $nombre_archivo,
+                    'ruta' => '/build/sabermas/' . $nombre_archivo,
+                    'peso' => $peso_mb
+                ];
+            }
+        }
+
+        $router->render('crece/saber-mas', [
+            'titulo' => 'Saber Más | CRECE',
+            'archivos' => $archivos_info
+        ]);
+    }
 }

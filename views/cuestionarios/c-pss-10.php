@@ -22,13 +22,13 @@
                     201 => '1. ¿Con qué frecuencia has estado afectado/a por algo que ha ocurrido inesperadamente?',
                     202 => '2. ¿Con qué frecuencia te has sentido incapaz de controlar las cosas importantes de tu vida?',
                     203 => '3. ¿Con qué frecuencia te has sentido nervioso/a o estresado/a (lleno de tensión)?',
-                    204 => '6. ¿Con qué frecuencia has estado seguro/a sobre tu capacidad de manejar tus problemas personales?',
-                    205 => '7. ¿Con qué frecuencia has sentido que las cosas te van bien?',
-                    206 => '8. ¿Con qué frecuencia has sentido que no podías afrontar todas las cosas que tenías que hacer?',
-                    207 => '9. ¿Con qué frecuencia has podido controlar las dificultades de tu vida?',
-                    208 => '10. ¿Con qué frecuencia has sentido que tienes el control de todo?',
-                    209 => '11. ¿Con qué frecuencia has estado enfadado/a porque las cosas que te han ocurrido estaban fuera de tu control?',
-                    210 => '14. ¿Con qué frecuencia has sentido que las dificultades se acumulan tanto que no puedes superarlas?'
+                    204 => '4. ¿Con qué frecuencia has estado seguro/a sobre tu capacidad de manejar tus problemas personales?',
+                    205 => '5. ¿Con qué frecuencia has sentido que las cosas te van bien?',
+                    206 => '6. ¿Con qué frecuencia has sentido que no podías afrontar todas las cosas que tenías que hacer?',
+                    207 => '7. ¿Con qué frecuencia has podido controlar las dificultades de tu vida?',
+                    208 => '8. ¿Con qué frecuencia has sentido que tienes el control de todo?',
+                    209 => '9. ¿Con qué frecuencia has estado enfadado/a porque las cosas que te han ocurrido estaban fuera de tu control?',
+                    210 => '10. ¿Con qué frecuencia has sentido que las dificultades se acumulan tanto que no puedes superarlas?'
                 ];
 
                 // Opciones comunes para todas las preguntas

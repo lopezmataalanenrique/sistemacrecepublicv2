@@ -50,6 +50,7 @@
     box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
 }
 .detail-name {
+    font-size: 1.2em;
     font-weight: v.$bold;
     margin-bottom: 0.5rem;
 }
@@ -117,7 +118,7 @@
 }
 
 .team-member-card .member-name { 
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: v.$bold;
     font-family: v.$fuente_principal;
     color: v.$negro;

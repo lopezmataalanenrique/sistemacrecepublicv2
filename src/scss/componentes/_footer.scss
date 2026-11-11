@@ -73,7 +73,7 @@
 .footer-title {
     font-family: v.$fuente_principal; 
     color: v.$blanco;
-    font-size: 2rem; 
+    font-size: 1.1em; 
     font-weight: v.$bold;
     margin: 0; 
     text-transform: uppercase;
@@ -82,7 +82,15 @@
 
 .social-icon-wrapper {
     background-color: v.$fondo_claro;
+    color: v.$negro;
+    text-decoration: none;
 }
+
+.social-icon-wrapper i{
+    ccolor: v.$negro;
+    font-size: 2.2rem;
+}
+
 
 .social-icon {
     color: v.$negro;

@@ -99,29 +99,27 @@
     <section class="what-is-crece-columns" id="inicio">
         <div class="contenedor">
             <div class="gold-bar">
-                <h2 class="section-title-centered">¿QUÉ ES CRECE?</h2>
+                <h2 class="section-title-centered">¿Qué es CRECE?</h2>
             </div>
 
             <div class="three-column-layout">
 
                 <div class="info-block">
-                    <h3>CALIDAD DE VIDA</h3>
-                    <p>El Programa Crece favorece el desarrollo de estrategias de manejo de condiciones crónicas que te permita desarrollar tu vida cotidiana con calidad.</p>
-                    <a href="#" class="read-more-link">Leer más</a>
+                    <h3>Calidad de vida</h3>
+                    <p>El Programa Crece está diseñado para acompañarte en el manejo de condiciones de salud física crónicas y promover el bienestar.</p>
                 </div>
 
                 <div class="info-block">
-                    <h3>PROGRAMA EN LÍNEA</h3>
-                    <p>Acceso dentro de la plataforma con actividades predeterminadas y de corta duración que contribuirán a incrementar la calidad de vida, salud mental y promoción de hábitos físicos.</p>
-                    <a href="#" class="read-more-link">Leer más</a>
+                    <h3>Programa en línea</h3>
+                    <p>Es un programa gratuito, flexible y autogestivo, con actividades breves que puedes realizar a tu ritmo y según tus necesidades.</p>
                 </div>
-
                 <div class="info-block">
-                    <h3>RESPALDO</h3>
+                    <h3>Respaldo</h3>
                     <p>Forma parte de los proyectos de la Facultad de Estudios Superiores Iztacala de la UNAM para promover el bienestar y la salud mental mediante intervenciones digitales basadas en evidencia.</p>
-                    <a href="#" class="read-more-link">Leer más</a>
                 </div>
+
             </div>
+            <a href="#faqs" class="read-more-link">Leer más</a>
         </div>
     </section>
 
@@ -139,24 +137,29 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="/build/img/work-in-progress.png" class="d-block w-100" alt="...">
+                    <img src="/build/img/c_serenamente.png" class="d-block w-100" alt="Imagen de SerenaMente 2.0">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Primer proyecto</h5>
-                        <p>(Yo soy el primer slide)</p>
+                        <h5>SerenaMente 2.0</h5>
+                        <p>Conoce a Serenito, y recorre un camino diseñado para gestionar dificultades emocionales de forma interactiva con apoyo de la IA</p>
+                        <p>Disponible para dispositivos Android</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="/build/img/work-in-progress.png" class="d-block w-100" alt="...">
+                    <img src="/build/img/c_quirona.png" class="d-block w-100" alt="Imagen de QUIRONA UNAM">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Primer proyecto</h5>
-                        <p>(Yo soy el segundo slide)</p>
+                        <h5>QUIRONA UNAM</h5>
+                        <p>Tu cuerpo, tu espacio seguro
+                            Contribuimos a prevenir la violencia ginecológica y obstétrica, tejiendo redes de atención humanizada, compasión y el empoderamiento de las mujeres.
+                            Conoce la primera etapa preventiva para adolescentes
+                        </p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="/build/img/work-in-progress.png" class="d-block w-100" alt="...">
+                    <img src="/build/img/c_labpsiit.png" class="d-block w-100" alt="Imagen del laboratorio de psicología e innovación tecnológica">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Primer proyecto</h5>
-                        <p>(Yo soy el tercer slide)</p>
+                        <h5>LABPSIIT</h5>
+                        <p>Innovación para tu salud emocional
+                            Soluciones creadas en México para fomentar una vida psicológica saludable en cada etapa. Descubre un camino</p>
                     </div>
                 </div>
             </div>
@@ -184,7 +187,9 @@
                 <h2>¿Quiénes somos?</h2>
             </div>
             <div class="texto-justificado">
-                <p>CRECE está conformado por un equipo multi e interdisciplinario para generar una solución tecnológica eficiente y útil en salud mental y calidad de vida. Es liderado por psicólogas y psicólogos de la UNAM que colaboran en el Laboratorio de Psicología e Innovación Tecnológica de la Facultad de Estudios Superiores Iztacala (LABPSIIT). Y en conjunto con desarrolladores de la Escuela Superior de Cómputo del IPN, es posible darle vida a este Programa. Cada uno aporta sus experiencias, conocimientos y pasión. ¡Te invitamos a conocernos!</p>
+                <p>CRECE está conformado por un equipo multi e interdisciplinario para generar una solución tecnológica eficiente y útil en salud mental y calidad de vida a personas que viven con alguna condición física crónica no transmisible.</p>
+                <p>Es liderado por psicólogas y psicólogos de la UNAM que colaboran en el Laboratorio de Psicología e Innovación Tecnológica de la Facultad de Estudios Superiores Iztacala (LABPSIIT). Y en conjunto con desarrolladores de la Escuela Superior de Cómputo del IPN, es posible darle vida a este Programa.</p>
+                <p>Cada uno aporta sus experiencias, conocimientos y pasión ¡Te invitamos a conocernos!</p>
             </div>
 
             <div class="member-detail-panel" id="memberDetailPanel">
@@ -199,22 +204,22 @@
 
             <h3 class="team-title psychological-team">Equipo de investigación psicológica</h3>
             <div class="team-grid-container psych-team-grid">
-                <!-- Miembro 1: Dra. Anabel de la Rosa Gómez -->
-                <div class="team-member-card" data-member-id="anabel">
-                    <img src="build/img/foto-anabel.jpg" alt="Dra. Anabel de la Rosa Gómez" class="member-photo">
-                    <div class="member-details">
-                        <h4 class="member-name">Dra. Anabel de la Rosa Gómez</h4>
-                        <p class="member-role">Investigadora. Fundadora LABPSIIT</p>
-                        <p class="member-bio-full" style="display: none;">Doctora en Psicología especializada en terapias cognitivo-conductuales y salud digital. Contribuye al diseño e implementación de intervenciones basadas en evidencia.</p>
-                    </div>
-                </div>
-                <!-- Miembro 2: Dra. Lorena A. Flores Plata -->
+                <!-- Miembro 1: Dra. Lorena A. Flores Plata -->
                 <div class="team-member-card" data-member-id="lorena">
                     <img src="build/img/foto-lorena.jpg" alt="Dra. Lorena A. Flores Plata" class="member-photo">
                     <div class="member-details">
                         <h4 class="member-name">Dra. Lorena A. Flores Plata</h4>
                         <p class="member-role">Investigadora. Coordinadora LABPSIIT</p>
                         <p class="member-bio-full" style="display: none;">Doctora en Psicología con especialización en intervenciones digitales para la salud mental. Líder en proyectos de investigación sobre calidad de vida en personas con condiciones crónicas.</p>
+                    </div>
+                </div>
+                <!-- Miembro 2: Dra. Anabel de la Rosa Gómez -->
+                <div class="team-member-card" data-member-id="anabel">
+                    <img src="build/img/foto-anabel.jpg" alt="Dra. Anabel de la Rosa Gómez" class="member-photo">
+                    <div class="member-details">
+                        <h4 class="member-name">Dra. Anabel de la Rosa Gómez</h4>
+                        <p class="member-role">Investigadora. Fundadora LABPSIIT</p>
+                        <p class="member-bio-full" style="display: none;">Doctora en Psicología especializada en terapias cognitivo-conductuales y salud digital. Contribuye al diseño e implementación de intervenciones basadas en evidencia.</p>
                     </div>
                 </div>
                 <!-- Miembro 3: Lic. Griselda Suzán Montoya -->
@@ -257,7 +262,7 @@
                 <div class="team-member-card" data-member-id="nayeli">
                     <img src="build/img/foto-nayeli.jpg" alt="Lic. Nayeli de la Rosa" class="member-photo">
                     <div class="member-details">
-                        <h4 class="member-name">Lic. Nayeli de la Rosa</h4>
+                        <p class="member-name">Lic. Nayeli de la Rosa</p>
                         <p class="member-role">Licenciada en Psicología</p>
                         <p class="member-bio-full" style="display: none;">Licenciada en Psicología con enfoque en salud mental y bienestar. Participa en la implementación y evaluación de intervenciones digitales del programa CRECE.</p>
                     </div>
@@ -267,7 +272,7 @@
                     <img src="build/img/foto-susana.jpg" alt="Psic. Susana Martínez Bautista" class="member-photo">
                     <div class="member-details">
                         <h4 class="member-name">Psic. Susana Martínez Bautista</h4>
-                        <p class="member-role">Licenciada en Psicología</p>
+                        <p class="member-role">Psicóloga</p>
                         <p class="member-bio-full" style="display: none;">Psicóloga con experiencia en intervención clínica y promoción de la salud mental. Colabora en el desarrollo de contenidos terapéuticos para el programa CRECE.</p>
                     </div>
                 </div>
@@ -294,7 +299,7 @@
                 <div class="team-member-card" data-member-id="alan">
                     <img src="/build/img/foto-alan.jpg" alt="Ing. Alan Enrique Lopez Mata" class="member-photo">
                     <div class="member-details">
-                        <h4 class="member-name">Ing. Alan Enrique Lopez Mata</h4>
+                        <h4 class="member-name">Alan Enrique Lopez Mata</h4>
                         <p class="member-role">Desarrollador Web</p>
                         <p class="member-bio-full" style="display: none;">Estudiante de la ESCOM, responsable del desarrollo backend de la plataforma CRECE. Encargado del diseño e implementación de la base de datos en MySQL y del uso del patrón MVC para la organización del sistema. Enfocado en la construcción de soluciones funcionales, estructuradas y escalables.</p>
                     </div>
@@ -302,7 +307,7 @@
                 <div class="team-member-card" data-member-id="joselyn">
                     <img src="/build/img/foto-joselyn.jpg" alt="Ing. Joselyn Guadalupe Mireles Silvestre" class="member-photo">
                     <div class="member-details">
-                        <h4 class="member-name">Ing. Joselyn Guadalupe Mireles Silvestre</h4>
+                        <h4 class="member-name">Joselyn Guadalupe Mireles Silvestre</h4>
                         <p class="member-role">Desarrolladora Web</p>
                         <p class="member-bio-full" style="display: none;">Estudiante de la ESCOM, responsable del diseño de la interfaz de usuario, garantizando la usabilidad y accesibilidad del programa en diferentes dispositivos. Se especializa en la creación de wireframes, prototipos y mockups, así como en la realización de pruebas de usuario para asegurar una experiencia intuitiva y agradable. Joselyn tiene un fuerte enfoque en el diseño centrado en el usuario y se esfuerza por traducir requisitos complejos en interfaces sencillas y atractivas. Su trabajo es fundamental para que el Programa CRECE sea fácil de usar y visualmente atractivo para todos los participantes.</p>
                     </div>
@@ -319,21 +324,50 @@
             <div class="faq-item">
                 <h3>¿El programa CRECE es un tratamiento psicológico?</h3>
                 <p class="texto-justificado">No, es una intervención psicológica basada en evidencia científica que no sustituye un tratamiento psicológico o tratamiento médico pertinente.</p>
+                <p>Aunque el programa está pensado para personas que viven con alguna condición física crónica, las personas cuidadoras también pueden beneficiarse de sus contenidos.</p>
             </div>
 
             <div class="faq-item">
-                <h3>¿Cómo me puedo inscribir?</h3>
-                <p class="texto-justificado">Puedes registrarte desde la página con un correo válido, <a href="/crear-cuenta">registrate aquí</a>.</p>
+                <h3>¿Cuál es la finalidad de la intervención psicológica que ofrecen?</h3>
+                <p class="texto-justificado">El Programa Crece tiene el propósito de brindar recursos que te permitan afrontar de manera más efectiva los retos asociados a tu salud, acercándote al autocuidado conciente, la regulación emocional, acercándote a una vida valiosa.</p>
             </div>
 
             <div class="faq-item">
                 <h3>¿Cuáles son los requisitos para inscribirse a la intervención psicológica?</h3>
-                <p class="texto-justificado">Solo necesitas tener un correo válido que uses frecuentemente y compromiso para completar de inicio a fin.</p>
+                <p class="texto-justificado">El programa está dirigido a personas de 18 años en adelante. Necesitas tener un correo válido que uses frecuentemente, contar con conexión a Internet y la disposición para completar de inicio a fin. El programa está diseñado para guiarte paso a paso, por lo que no es necesario contar con experiencia previa.
+                </p>
             </div>
 
             <div class="faq-item">
+                <h3>¿Cómo me puedo registrar?</h3>
+                <p class="texto-justificado">Puedes registrarte desde la página con un correo válido llenando el formulario <a href="/crear-cuenta">registrate aquí</a>.</p>
+            </div>
+
+
+            <div class="faq-item">
                 <h3>¿Todas las personas que se registren pueden participar?</h3>
-                <p class="texto-justificado">No, existen algunos criterios de exclusión debido a que el Programa CRECE se encuentra en un proceso de investigación y está orientado a quien padece alguna condición física crónica no transmisible.</p>
+                <p class="texto-justificado">No, existen algunos criterios de exclusión debido a que el Programa CRECE se encuentra en un proceso de investigación.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>¿En qué dispositivos puedo hacer mis actividades?</h3>
+                <p class="texto-justificado">Puedes acceder desde una computadora, tableta o teléfono celular inteligente, con conexión a Internet para acceder a los contenidos. Recomendamos el uso de computadora o laptop para mejor visualización.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>¿Cuál es la duración de la intervención psicológica?</h3>
+                <p class="texto-justificado">El programa está organizado en módulos. Cada uno puede completarse en una semana, dedicando entre 15 y 25 minutos diarios, dependiendo de la actividad. Podrás acceder al programa a cualquier hora del día para que avances a tu ritmo.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>¿Tiene algún costo el Programa?</h3>
+                <p class="texto-justificado">El Programa CRECE es totalmente gratuito, al ser parte de un proyecto de investigación de la UNAM. En ninguna fase del proyecto se cobrará ningún monto.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>¿Qué sustenta el diseño de la intervención del Programa?</h3>
+                <p class="texto-justificado">Los contenidos del Programa están basados en principios contextuales cognitivos integrados para promover la flexibilidad psicológica, la compasión, y el manejo de síntomas físicos y emocionales asociados a condiciones crónicas validadas científicamente.</p>
             </div>
 
             <div class="faq-item">
@@ -350,37 +384,12 @@
 
             <div class="faq-item">
                 <h3>¿Por qué es importante este compromiso?</h3>
-                <p class="texto-justificado">Con ello nos permites analizar la calidad y aceptabilidad del sistema, identificar qué fue de mayor utilidad y así mejorar la experiencia y ofrecer evidencia que respalde su aplicación, de manera que contribuyes al desarrollo de programas que beneficiarán a más personas en el futuro.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>¿Cuál es la duración de la intervención psicológica?</h3>
-                <p class="texto-justificado">No tiene una duración limitada. Está diseñado para que dedicas tiempos cortos diariamente, entre 15 y 25 minutos dependiendo de la actividad. De esta forma, cada uno de los siete módulos lo podrás terminar en el lapso de una semana.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>¿En qué dispositivos puedo hacer mis actividades?</h3>
-                <p class="texto-justificado">Para mayor comodidad de visualización, se recomienda ingresar mediante el navegador de una PC o laptop. Sin embargo, también se puede acceder mediante otro dispositivo como tabletas o teléfonos inteligentes.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>¿Tiene algún costo el Programa?</h3>
-                <p class="texto-justificado">El Programa CRECE es totalmente gratuito, al ser parte de un proyecto de investigación de la UNAM. En ninguna fase del proyecto se cobrará ningún monto.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>¿Qué sustenta el diseño de la intervención del Programa?</h3>
-                <p class="texto-justificado">Los contenidos del Programa están basados en principios contextuales cognitivos integrados para promover la flexibilidad psicológica, la compasión, y el manejo de síntomas físicos y emocionales asociados a condiciones crónicas validadas científicamente.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>¿Cuál es la finalidad de la intervención psicológica que ofrecen?</h3>
-                <p class="texto-justificado">El Programa CRECE tiene el propósito de proporcionar herramientas que permitan mejorar tu bienestar mental y emocional, y que tengas mecanismos que te ayuden a corto, mediano y largo plazo.</p>
+                <p class="texto-justificado">Con ello nos permites analizar la calidad y aceptabilidad del sistema, identificar qué fue de mayor utilidad y así mejorar la experiencia y ofrecer evidencia que respalde su aplicación, de manera que contribuyes al desarrollo de programas que beneficiaran a más personas en el futuro.</p>
             </div>
 
             <div class="faq-item">
                 <h3>¿Se garantiza la privacidad y confidencialidad de los datos e información proporcionada durante la intervención psicológica?</h3>
-                <p class="texto-justificado">Todos los datos e información que nos proporcionas son tratados con privacidad y confidencialidad. Puedes consultar el <a href="#">aviso de privacidad</a>.</p>
+                <p class="texto-justificado">Todos los datos e información que nos proporcionas son tratados con privacidad y confidencialidad. Puedes consultar el <a href="/descargas/Propuesta_consentimiento_informado_Crece.pdf" download>Aviso de privacidad</a>.</p>
             </div>
         </div>
     </section>
@@ -401,21 +410,84 @@
                     <a class="circle-item"><img src="/build/img/logo-unam.webp" alt="UNAM" class="logo-item"></a>
                     <a class="circle-item"><img src="/build/img/logo-suayed.webp" alt="FES Iztacala" class="logo-item"></a>
                     <a class="circle-item"><img src="/build/img/logo-labpsiit.webp" alt="Labpsiit" class="logo-item"></a>
-                    
+
                 </div>
 
                 <div class="social-media-group">
                     <h4 class="footer-title social">Nuestras redes sociales</h4>
-                    <a class="circle-item social-icon-wrapper"><a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a></a>
-                    <a class="circle-item social-icon-wrapper"><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a></a>
-                    <a class="circle-item social-icon-wrapper"><a href="#" class="social-icon"><i class="fab fa-youtube"></i></a></a>
-                    
+
+                    <a href="https://www.facebook.com/109365340653940?ref=embed_page"
+                        class="circle-item social-icon-wrapper"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Facebook">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#607d8b"
+                            stroke-width="1"
+                            stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
+                        </svg>
+
+                    </a>
+
+                    <a href="https://www.instagram.com/labpsiit/"
+                        class="circle-item social-icon-wrapper"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Instagram">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#607d8b"
+                            stroke-width="1"
+                            stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" />
+                            <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                            <path d="M16.5 7.5l0 .01" />
+                        </svg>
+
+                    </a>
+
+                    <a href="https://www.youtube.com/@laboratoriodepsicologiaein494"
+                        class="circle-item social-icon-wrapper"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="YouTube">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#607d8b"
+                            stroke-width="1"
+                            stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z" />
+                            <path d="M10 9l5 3l-5 3z" />
+                        </svg>
+
+                    </a>
+
                 </div>
             </div>
 
             <div class="contact-legal-info">
-                <p>¿Tienes dudas?: <a href="mailto:correo@correo.com">correo@correo.com</a></p>
-                <p><a href="#">Aviso de privacidad</a></p>
+                <p>¿Tienes dudas?: <a href="mailto:programe.crece@iztacala.unam.mx">programe.crece@iztacala.unam.mx</a></p>
+                <p><a href="/descargas/Propuesta_consentimiento_informado_Crece.pdf" download>Aviso de privacidad</a></p>
                 <p>Domicilio: Av. de los Barrios No. 1, Los Reyes Iztacala, Tlalnepantla de Baz. Méx. 54090</p>
             </div>
         </div>

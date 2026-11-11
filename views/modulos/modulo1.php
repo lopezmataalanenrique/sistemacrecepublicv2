@@ -14,6 +14,41 @@ function getEstado($id, $actual)
     <div class="contenedor-cambiar-size">
         <button class="boton-cambiar-size" onclick="disminuirTexto()">A-</button>
         <button class="boton-cambiar-size" onclick="aumentarTexto()">A+</button>
+        <div class="navegacion-actividades">
+            <div>
+                <div style="display: flex; overflow-x: auto; padding: 1rem; justify-content: center; align-items: center;">
+
+                    <?php for ($i = 1; $i <= 5; $i++): ?>
+                        <?php
+                        $actividadActual = (int)$progreso->actividad_actual;
+
+                        // Estilos base para formar un círculo perfecto
+                        $estiloCirculo = "width: 3rem; height: 3rem; border-radius: 100%; display: inline-flex; justify-content: center; align-items: center; font-weight: bold; text-decoration: none; transition: all 0.3s ease;";
+
+                        if ($i < $actividadActual || $progreso->estatus === 'completado') {
+                            // COMPLETADA: Fondo verde claro, texto verde oscuro, borde sutil
+                            $estiloAdicional = "background-color: #e8f5e9; color: #27ae60; border: 1px solid #27ae60;";
+                            $enlace = "#act" . $i;
+                        } elseif ($i === $actividadActual) {
+                            // ACTIVA: Fondo azul CRECE, texto blanco (destaca sutilmente)
+                            $estiloAdicional = "background-color: #12307D; color: #ffffff; border: 1px solid #fff; box-shadow: 0 0 8px rgba(18, 48, 125, 0.3);";
+                            $enlace = "#act" . $i;
+                        } else {
+                            // BLOQUEADA: Gris inactivo, no se puede hacer clic
+                            $estiloAdicional = "background-color: #f8f9fa; color: #adb5bd; border: 1px solid #dee2e6; pointer-events: none; cursor: not-allowed;";
+                            $enlace = "javascript:void(0);";
+                        }
+                        ?>
+
+                        <a class="nav-act" href="<?php echo $enlace; ?>" style=" margin: 0 1rem; <?php echo $estiloCirculo . $estiloAdicional; ?>" title="Ir a la Actividad <?php echo $i; ?>">
+                            <?php echo $i; ?>
+                        </a>
+
+                    <?php endfor; ?>
+
+                </div>
+            </div>
+        </div>
     </div>
     <div class="container-fluid">
         <a class="navbar-brand navbar-brand-pm" href="/panel-modulos">
@@ -62,19 +97,16 @@ function getEstado($id, $actual)
                     <li class="offcanvas-body nav-item">
                         <a class="nav-link-c-pm nav-link-c--active-pm" aria-current="page" href="/panel-modulos">Panel</a>
                     </li>
-                    <li class="offcanvas-body nav-item">
-                        <a class="nav-link-c-pm" href="#">Perfil</a>
-                    </li>
+                    
                     <li class="offcanvas-body nav-item">
                         <a class="nav-link-c-pm" href="/logout">Cerrar sesión</a>
                     </li>
-                    <li class="offcanvas-body nav-item">
-                        <a class="nav-link-c-pm" href="#">Saber más</a>
-                    </li>
+                    
                 </ul>
             </div>
         </div>
     </div>
+
 </nav>
 
 <header class="encabezado-panel">
@@ -103,6 +135,8 @@ function getEstado($id, $actual)
         <img class="encabezado-panel__logo" src="/build/img/logo-crece.webp" alt="Logo del programa CRECE" />
     </div>
 </header>
+
+
 
 <main class="cuerpo-modulo">
     <section class="encabezado-modulo">
@@ -527,7 +561,7 @@ function getEstado($id, $actual)
         </div>
 
         <div class="m1-audio-contenedor">
-            <p class="audio-titulo">Práctica de MP 5 Sentidos</p>
+            <p class="audio-titulo">Práctica de los 5 sentidos</p>
             <audio controls style="width: 100%;">
                 <source src="/build/audio/Audio_B2_Práctica_de_Momento_Presente.mp3" type="audio/mpeg">
                 Tu navegador no soporta el audio.
@@ -602,7 +636,7 @@ function getEstado($id, $actual)
 
             <div style="margin-top: 4rem; text-align: center;">
                 <?php if ($st5['completada']): ?>
-                    <div class="m-mensaje-completado-modulo">
+                    <div id="modulo-completado" class="m-mensaje-completado-modulo">
                         ✨ ¡Concluiste con el Módulo 1! ✨
                     </div>
                     <button type="button" class="boton boton-completado" disabled>Módulo Completado</button>
@@ -614,36 +648,100 @@ function getEstado($id, $actual)
     </section>
 </main>
 
-<footer class="main-footer footer-pm">
-    <div class="footer-content contenedor">
+<footer class="main-footer">
+        <div class="footer-content contenedor">
 
-        <div class="logo-icon-row">
+            <div class="logo-icon-row">
 
-            <div class="developed-by-logos">
-                <div class="circle-item"><img src="/build/img/logo-ipn.webp" alt="IPN" class="logo-item"></div>
-                <div class="circle-item"><img src="/build/img/logo-escom.webp" alt="ESCOM" class="logo-item"></div>
-                <div class="circle-item"><img src="/build/img/logo-unam.webp" alt="UNAM" class="logo-item"></div>
-                <div class="circle-item"><img src="/build/img/logo-suayed.webp" alt="FES Iztacala" class="logo-item"></div>
-                <div class="circle-item"><img src="/build/img/logo-labpsiit.webp" alt="Labpsiit" class="logo-item"></div>
-                <h4 class="footer-title developed">Desarrollado por</h4>
+                <div class="developed-by-logos">
+                    <h4 class="footer-title developed">Desarrollado por</h4>
+                    <a href="https://www.ipn.mx/" class="circle-item"><img src="/build/img/logo-ipn.webp" alt="IPN" class="logo-item"></a>
+                    <a class="circle-item"><img src="/build/img/logo-escom.webp" alt="ESCOM" class="logo-item"></a>
+                    <a class="circle-item"><img src="/build/img/logo-unam.webp" alt="UNAM" class="logo-item"></a>
+                    <a class="circle-item"><img src="/build/img/logo-suayed.webp" alt="FES Iztacala" class="logo-item"></a>
+                    <a class="circle-item"><img src="/build/img/logo-labpsiit.webp" alt="Labpsiit" class="logo-item"></a>
+
+                </div>
+
+                <div class="social-media-group">
+                    <h4 class="footer-title social">Nuestras redes sociales</h4>
+
+                    <a href="https://www.facebook.com/109365340653940?ref=embed_page"
+                        class="circle-item social-icon-wrapper"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Facebook">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#607d8b"
+                            stroke-width="1"
+                            stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
+                        </svg>
+
+                    </a>
+
+                    <a href="https://www.instagram.com/labpsiit/"
+                        class="circle-item social-icon-wrapper"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Instagram">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#607d8b"
+                            stroke-width="1"
+                            stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" />
+                            <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                            <path d="M16.5 7.5l0 .01" />
+                        </svg>
+
+                    </a>
+
+                    <a href="https://www.youtube.com/@laboratoriodepsicologiaein494"
+                        class="circle-item social-icon-wrapper"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="YouTube">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#607d8b"
+                            stroke-width="1"
+                            stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z" />
+                            <path d="M10 9l5 3l-5 3z" />
+                        </svg>
+
+                    </a>
+
+                </div>
             </div>
 
-            <div class="social-media-group">
-
-                <div class="circle-item social-icon-wrapper"><a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a></div>
-                <div class="circle-item social-icon-wrapper"><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a></div>
-                <div class="circle-item social-icon-wrapper"><a href="#" class="social-icon"><i class="fab fa-youtube"></i></a></div>
-                <h4 class="footer-title social">Nuestras redes sociales</h4>
+            <div class="contact-legal-info">
+                <p>¿Tienes dudas?: <a href="mailto:programe.crece@iztacala.unam.mx">programe.crece@iztacala.unam.mx</a></p>
+                <p><a href="/descargas/Propuesta_consentimiento_informado_Crece.pdf" download>Aviso de privacidad</a></p>
+                <p>Domicilio: Av. de los Barrios No. 1, Los Reyes Iztacala, Tlalnepantla de Baz. Méx. 54090</p>
             </div>
         </div>
-
-        <div class="contact-legal-info">
-            <p>¿Tienes dudas?: <a href="mailto:correo@correo.com">correo@correo.com</a></p>
-            <p><a href="#">Aviso de privacidad</a></p>
-            <p>Domicilio: Av. de los Barrios No. 1, Los Reyes Iztacala, Tlalnepantla de Baz. Méx. 54090</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
