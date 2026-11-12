@@ -286,10 +286,10 @@
                         <div class="crear-cuenta-header-legal">
                             <p class="crear-cuenta-label">Consentimiento Informado y Aviso de Privacidad</p>
                             <div class="crear-cuenta-descargas">
-                                <a href="/descargas/Propuesta_consentimiento_informado_Crece.pdf" class="btn-descarga" download>
+                                <a href="build/descargas/Propuesta_consentimiento_informado_Crece.pdf" class="btn-descarga" download>
                                     <i class="fas fa-file-download"></i> Consentimiento
                                 </a>
-                                <a href="/descargas/Propuesta_de_Aviso_de_Privacidad.pdf" class="btn-descarga" download>
+                                <a href="build/descargas/Propuesta_de_Aviso_de_Privacidad.pdf" class="btn-descarga" download>
                                     <i class="fas fa-file-download"></i> Aviso Integral
                                 </a>
                             </div>
@@ -305,12 +305,12 @@
 
                                 <p><strong>Derechos ARCO:</strong> Usted puede acceder, rectificar, cancelar u oponerse al tratamiento de sus datos enviando un correo a programe.crece@iztacala.unam.mx con el asunto "ARCO".</p>
 
-                                <p>Para mayor detalle consulta el <a href="/descargas/Propuesta_de_Aviso_de_Privacidad.pdf" download>aviso de privacidad integral</a>.</p>
+                                <p>Para mayor detalle consulta el <a href="build/descargas/Propuesta_de_Aviso_de_Privacidad.pdf" download>aviso de privacidad integral</a>.</p>
 
                                 <h3>Consentimiento Informado</h3>
                                 <p>Usted ha sido invitado a participar en el estudio científico "Programa de Compromiso como Respuesta a las Condiciones Crónicas En Línea: Estudio de viabilidad", coordinado por el Laboratorio de Psicología e Innovación Tecnológica de la FES Iztacala, UNAM.</p>
 
-                                <p>Los detalles de las características del programa y las condiciones de su participación se describen en el <a href="/descargas/Propuesta_consentimiento_informado_Crece.pdf" download>consentimiento informado</a>.</p>
+                                <p>Los detalles de las características del programa y las condiciones de su participación se describen en el <a href="build/descargas/Propuesta_consentimiento_informado_Crece.pdf" download>consentimiento informado</a>.</p>
 
                                 <hr>
                                 <p><em>Al llegar al final de este texto, confirma que ha leído y comprendido que sus datos serán protegidos y utilizados únicamente con fines académicos y de investigación.</em></p>

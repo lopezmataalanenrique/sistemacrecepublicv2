@@ -389,7 +389,7 @@
 
             <div class="faq-item">
                 <h3>¿Se garantiza la privacidad y confidencialidad de los datos e información proporcionada durante la intervención psicológica?</h3>
-                <p class="texto-justificado">Todos los datos e información que nos proporcionas son tratados con privacidad y confidencialidad. Puedes consultar el <a href="/descargas/Propuesta_de_Aviso_de_Privacidad.pdf" download>Aviso de privacidad</a>.</p>
+                <p class="texto-justificado">Todos los datos e información que nos proporcionas son tratados con privacidad y confidencialidad. Puedes consultar el <a href="build/descargas/Propuesta_de_Aviso_de_Privacidad.pdf" download>Aviso de privacidad</a>.</p>
             </div>
         </div>
     </section>
@@ -487,7 +487,7 @@
 
             <div class="contact-legal-info">
                 <p>¿Tienes dudas?: <a href="mailto:programe.crece@iztacala.unam.mx">programe.crece@iztacala.unam.mx</a></p>
-                <p><a href="/descargas/Propuesta_de_Aviso_de_Privacidad.pdf" download>Aviso de privacidad</a></p>
+                <p><a href="build/descargas/Propuesta_de_Aviso_de_Privacidad.pdf" download>Aviso de privacidad</a></p>
                 <p>Domicilio: Av. de los Barrios No. 1, Los Reyes Iztacala, Tlalnepantla de Baz. Méx. 54090</p>
             </div>
         </div>

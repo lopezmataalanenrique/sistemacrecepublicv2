@@ -981,7 +981,7 @@ function getEstado($id, $actual)
 
             <div class="contact-legal-info">
                 <p>¿Tienes dudas?: <a href="mailto:programe.crece@iztacala.unam.mx">programe.crece@iztacala.unam.mx</a></p>
-                <p><a href="/descargas/Propuesta_de_Aviso_de_Privacidad.pdf" download>Aviso de privacidad</a></p>
+                <p><a href="build/descargas/Propuesta_de_Aviso_de_Privacidad.pdf" download>Aviso de privacidad</a></p>
                 <p>Domicilio: Av. de los Barrios No. 1, Los Reyes Iztacala, Tlalnepantla de Baz. Méx. 54090</p>
             </div>
         </div>
